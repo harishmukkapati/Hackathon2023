@@ -1,0 +1,665 @@
+{
+    "requests": [
+    {
+      "inputConfig": {
+        "gcsSource": {
+          "uri": "gs://sflectures/Course Introduction.pdf"
+        },
+        "mimeType": "application/pdf"
+      },
+      "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+      "outputConfig": {
+        "gcsDestination": {
+          "uri": "gs://sflectures/course-introduction"
+        },
+        "batchSize": 1
+      }
+    },
+    {
+      "inputConfig": {
+        "gcsSource": {
+          "uri": "gs://sflectures/Java Overview.pdf"
+        },
+        "mimeType": "application/pdf"
+      },
+      "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+      "outputConfig": {
+        "gcsDestination": {
+          "uri": "gs://sflectures/java-overview"
+        },
+        "batchSize": 1
+      }
+    },
+    {
+    "inputConfig": {
+        "gcsSource": {
+          "uri": "gs://sflectures/Output Strings Input.pdf"
+        },
+        "mimeType": "application/pdf"
+      },
+      "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+      "outputConfig": {
+        "gcsDestination": {
+          "uri": "gs://sflectures/output-strings-input"
+        },
+        "batchSize": 1
+      }
+    },
+    {
+    "inputConfig": {
+        "gcsSource": {
+          "uri": "gs://sflectures/Variables Types Values.pdf"
+        },
+        "mimeType": "application/pdf"
+      },
+      "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+      "outputConfig": {
+        "gcsDestination": {
+          "uri": "gs://sflectures/variables-types-values"
+        },
+        "batchSize": 1
+      }
+    },
+    {
+    "inputConfig": {
+        "gcsSource": {
+          "uri": "gs://sflectures/Operators Expressions Statements Control Flow.pdf"
+        },
+        "mimeType": "application/pdf"
+      },
+      "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+      "outputConfig": {
+        "gcsDestination": {
+          "uri": "gs://sflectures/operators-expressions-statements-control-flow"
+        },
+        "batchSize": 1
+      }
+    },
+    {
+    "inputConfig": {
+        "gcsSource": {
+          "uri": "gs://sflectures/Monte Carlo Estimation.pdf"
+        },
+        "mimeType": "application/pdf"
+      },
+      "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+      "outputConfig": {
+        "gcsDestination": {
+          "uri": "gs://sflectures/monte-carlo-estimation"
+        },
+        "batchSize": 1
+      }
+    },
+    {
+    "inputConfig": {
+        "gcsSource": {
+          "uri": "gs://sflectures/While Loops.pdf"
+        },
+        "mimeType": "application/pdf"
+      },
+      "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+      "outputConfig": {
+        "gcsDestination": {
+          "uri": "gs://sflectures/while-loops"
+        },
+        "batchSize": 1
+      }
+    },
+    {
+    "inputConfig": {
+        "gcsSource": {
+          "uri": "gs://sflectures/Static Methods.pdf"
+        },
+        "mimeType": "application/pdf"
+      },
+      "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+      "outputConfig": {
+        "gcsDestination": {
+          "uri": "gs://sflectures/static-methods"
+        },
+        "batchSize": 1
+      }
+    },
+    {
+    "inputConfig": {
+        "gcsSource": {
+          "uri": "gs://sflectures/Parameter Passing.pdf"
+        },
+        "mimeType": "application/pdf"
+      },
+      "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+      "outputConfig": {
+        "gcsDestination": {
+          "uri": "gs://sflectures/parameter-passing"
+        },
+        "batchSize": 1
+      }
+    },
+    {
+    "inputConfig": {
+        "gcsSource": {
+          "uri": "gs://sflectures/Arrays.pdf"
+        },
+        "mimeType": "application/pdf"
+      },
+      "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+      "outputConfig": {
+        "gcsDestination": {
+          "uri": "gs://sflectures/arrays"
+        },
+        "batchSize": 1
+      }
+    },
+    {
+    "inputConfig": {
+        "gcsSource": {
+          "uri": "gs://sflectures/Design by Contract.pdf"
+        },
+        "mimeType": "application/pdf"
+      },
+      "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+      "outputConfig": { 
+        "gcsDestination": {
+          "uri": "gs://sflectures/design-by-contract"
+        },
+        "batchSize": 1
+      }
+    },
+    {
+        "inputConfig": {
+          "gcsSource": {
+            "uri": "gs://sflectures/Trees.pdf"
+          },
+          "mimeType": "application/pdf"
+        },
+        "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+        "outputConfig": {
+          "gcsDestination": {
+            "uri": "gs://sflectures/trees"
+          },
+          "batchSize": 1
+        }
+    },
+    {
+        "inputConfig": {
+          "gcsSource": {
+            "uri": "gs://sflectures/11 XML Documents.pdf"
+          },
+          "mimeType": "application/pdf"
+        },
+        "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+        "outputConfig": {
+          "gcsDestination": {
+            "uri": "gs://sflectures/11-xml-documents"
+          },
+          "batchSize": 1
+        }
+    },
+    {
+        "inputConfig": {
+          "gcsSource": {
+            "uri": "gs://sflectures/XMLTree Model.pdf"
+          },
+          "mimeType": "application/pdf"
+        },
+        "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+        "outputConfig": {
+          "gcsDestination": {
+            "uri": "gs://sflectures/xmltree-model"
+          },
+          "batchSize": 1
+        }
+    },
+    {
+        "inputConfig": {
+          "gcsSource": {
+            "uri": "gs://sflectures/'XMLTree Methods.pdf"
+          },
+          "mimeType": "application/pdf"
+        },
+        "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+        "outputConfig": {
+          "gcsDestination": {
+            "uri": "gs://sflectures/xmltree-methods"
+          },
+          "batchSize": 1
+        }
+    },
+    {
+        "inputConfig": {
+          "gcsSource": {
+            "uri": "gs://sflectures/RSS.pdf"
+          },
+          "mimeType": "application/pdf"
+        },
+        "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+        "outputConfig": {
+          "gcsDestination": {
+            "uri": "gs://sflectures/rss"
+          },
+          "batchSize": 1
+        }
+    },
+    {
+        "inputConfig": {
+          "gcsSource": {
+            "uri": "gs://sflectures/14a Clock Arithmetic.pdf"
+          },
+          "mimeType": "application/pdf"
+        },
+        "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+        "outputConfig": {
+          "gcsDestination": {
+            "uri": "gs://sflectures/14a-clock-arithmetic"
+          },
+          "batchSize": 1
+        }
+    },
+    {
+        "inputConfig": {
+          "gcsSource": {
+            "uri": "gs://sflectures/NaturalNumber.pdf"
+          },
+          "mimeType": "application/pdf"
+        },
+        "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+        "outputConfig": {
+          "gcsDestination": {
+            "uri": "gs://sflectures/natural-number"
+          },
+          "batchSize": 1
+        }
+      },
+      {
+        "inputConfig": {
+          "gcsSource": {
+            "uri": "gs://sflectures/References.pdf"
+          },
+          "mimeType": "application/pdf"
+        },
+        "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+        "outputConfig": {
+          "gcsDestination": {
+            "uri": "gs://sflectures/references"
+          },
+          "batchSize": 1
+        }
+      },
+      {
+      "inputConfig": {
+          "gcsSource": {
+            "uri": "gs://sflectures/Arrays References.pdf"
+          },
+          "mimeType": "application/pdf"
+        },
+        "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+        "outputConfig": {
+          "gcsDestination": {
+            "uri": "gs://sflectures/arrays-references"
+          },
+          "batchSize": 1
+        }
+      },
+      {
+      "inputConfig": {
+          "gcsSource": {
+            "uri": "gs://sflectures/Contracts.pdf"
+          },
+          "mimeType": "application/pdf"
+        },
+        "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+        "outputConfig": {
+          "gcsDestination": {
+            "uri": "gs://sflectures/contracts"
+          },
+          "batchSize": 1
+        }
+      },
+      {
+      "inputConfig": {
+          "gcsSource": {
+            "uri": "gs://sflectures/19 Repeated Arguments.pdf"
+          },
+          "mimeType": "application/pdf"
+        },
+        "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+        "outputConfig": {
+          "gcsDestination": {
+            "uri": "gs://sflectures/19-repeated-arguments"
+          },
+          "batchSize": 1
+        }
+      },
+      {
+      "inputConfig": {
+          "gcsSource": {
+            "uri": "gs://sflectures/Interval Halving.pdf"
+          },
+          "mimeType": "application/pdf"
+        },
+        "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+        "outputConfig": {
+          "gcsDestination": {
+            "uri": "gs://sflectures/interval-halving"
+          },
+          "batchSize": 1
+        }
+      },
+      {
+      "inputConfig": {
+          "gcsSource": {
+            "uri": "gs://sflectures/String Theory.pdf"
+          },
+          "mimeType": "application/pdf"
+        },
+        "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+        "outputConfig": {
+          "gcsDestination": {
+            "uri": "gs://sflectures/string-theory"
+          },
+          "batchSize": 1
+        }
+      },
+      {
+      "inputConfig": {
+          "gcsSource": {
+            "uri": "gs://sflectures/Recursion Thinking.pdf"
+          },
+          "mimeType": "application/pdf"
+        },
+        "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+        "outputConfig": {
+          "gcsDestination": {
+            "uri": "gs://sflectures/recursion-thinking"
+          },
+          "batchSize": 1
+        }
+      },
+      {
+      "inputConfig": {
+          "gcsSource": {
+            "uri": "gs://sflectures/OOP Concepts.pdf"
+          },
+          "mimeType": "application/pdf"
+        },
+        "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+        "outputConfig": {
+          "gcsDestination": {
+            "uri": "gs://sflectures/oop-concepts"
+          },
+          "batchSize": 1
+        }
+      },
+      {
+      "inputConfig": {
+          "gcsSource": {
+            "uri": "gs://sflectures/Static vs Instance Methods.pdf"
+          },
+          "mimeType": "application/pdf"
+        },
+        "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+        "outputConfig": {
+          "gcsDestination": {
+            "uri": "gs://sflectures/static-vs-instance-methods"
+          },
+          "batchSize": 1
+        }
+      },
+      {
+      "inputConfig": {
+          "gcsSource": {
+            "uri": "gs://sflectures/Recursion Why.pdf"
+          },
+          "mimeType": "application/pdf"
+        },
+        "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+        "outputConfig": { 
+          "gcsDestination": {
+            "uri": "gs://sflectures/recursion-why"
+          },
+          "batchSize": 1
+        }
+      },
+      {
+          "inputConfig": {
+            "gcsSource": {
+              "uri": "gs://sflectures/Recursion Trees.pdf"
+            },
+            "mimeType": "application/pdf"
+          },
+          "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+          "outputConfig": {
+            "gcsDestination": {
+              "uri": "gs://sflectures/recursion-trees"
+            },
+            "batchSize": 1
+          }
+      },
+      {
+          "inputConfig": {
+            "gcsSource": {
+              "uri": "gs://sflectures/Testing.pdf"
+            },
+            "mimeType": "application/pdf"
+          },
+          "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+          "outputConfig": {
+            "gcsDestination": {
+              "uri": "gs://sflectures/testing"
+            },
+            "batchSize": 1
+          }
+      },
+      {
+          "inputConfig": {
+            "gcsSource": {
+              "uri": "gs://sflectures/JUnit.pdf"
+            },
+            "mimeType": "application/pdf"
+          },
+          "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+          "outputConfig": {
+            "gcsDestination": {
+              "uri": "gs://sflectures/junit"
+            },
+            "batchSize": 1
+          }
+      },
+      {
+          "inputConfig": {
+            "gcsSource": {
+              "uri": "gs://sflectures/Queue.pdf"
+            },
+            "mimeType": "application/pdf"
+          },
+          "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+          "outputConfig": {
+            "gcsDestination": {
+              "uri": "gs://sflectures/queue"
+            },
+            "batchSize": 1
+          }
+      },
+      {
+          "inputConfig": {
+            "gcsSource": {
+              "uri": "gs://sflectures/Set Theory.pdf"
+            },
+            "mimeType": "application/pdf"
+          },
+          "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+          "outputConfig": {
+            "gcsDestination": {
+              "uri": "gs://sflectures/set-theory"
+            },
+            "batchSize": 1
+          }
+      },
+      {
+          "inputConfig": {
+            "gcsSource": {
+              "uri": "gs://sflectures/Set.pdf"
+            },
+            "mimeType": "application/pdf"
+          },
+          "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+          "outputConfig": {
+            "gcsDestination": {
+              "uri": "gs://sflectures/set"
+            },
+            "batchSize": 1
+          }
+      },
+      {
+        "inputConfig": {
+            "gcsSource": {
+              "uri": "gs://sflectures/String Reassembly.pdf"
+            },
+            "mimeType": "application/pdf"
+          },
+          "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+          "outputConfig": { 
+            "gcsDestination": {
+              "uri": "gs://sflectures/string-reassembly"
+            },
+            "batchSize": 1
+          }
+        },
+        {
+            "inputConfig": {
+              "gcsSource": {
+                "uri": "gs://sflectures/Sequence.pdf"
+              },
+              "mimeType": "application/pdf"
+            },
+            "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+            "outputConfig": {
+              "gcsDestination": {
+                "uri": "gs://sflectures/sequence"
+              },
+              "batchSize": 1
+            }
+        },
+        {
+            "inputConfig": {
+              "gcsSource": {
+                "uri": "gs://sflectures/Stack.pdf"
+              },
+              "mimeType": "application/pdf"
+            },
+            "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+            "outputConfig": {
+              "gcsDestination": {
+                "uri": "gs://sflectures/stack"
+              },
+              "batchSize": 1
+            }
+        },
+        {
+            "inputConfig": {
+              "gcsSource": {
+                "uri": "gs://sflectures/Recursion How.pdf"
+              },
+              "mimeType": "application/pdf"
+            },
+            "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+            "outputConfig": {
+              "gcsDestination": {
+                "uri": "gs://sflectures/recursion-how"
+              },
+              "batchSize": 1
+            }
+        },
+        {
+            "inputConfig": {
+              "gcsSource": {
+                "uri": "gs://sflectures/CSE 2221 Map.pdf"
+              },
+              "mimeType": "application/pdf"
+            },
+            "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+            "outputConfig": {
+              "gcsDestination": {
+                "uri": "gs://sflectures/cse-2221-map"
+              },
+              "batchSize": 1
+            }
+        },
+        {
+            "inputConfig": {
+              "gcsSource": {
+                "uri": "gs://sflectures/35 GUI.pdf"
+              },
+              "mimeType": "application/pdf"
+            },
+            "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+            "outputConfig": {
+              "gcsDestination": {
+                "uri": "gs://sflectures/35-gui"
+              },
+              "batchSize": 1
+            }
+        },
+        {
+            "inputConfig": {
+              "gcsSource": {
+                "uri": "gs://sflectures/MVC.pdf"
+              },
+              "mimeType": "application/pdf"
+            },
+            "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+            "outputConfig": {
+              "gcsDestination": {
+                "uri": "gs://sflectures/MVC"
+              },
+              "batchSize": 1
+            }
+        },
+        {
+            "inputConfig": {
+              "gcsSource": {
+                "uri": "gs://sflectures/View Constructor.pdf"
+              },
+              "mimeType": "application/pdf"
+            },
+            "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+            "outputConfig": {
+              "gcsDestination": {
+                "uri": "gs://sflectures/view-constructor"
+              },
+              "batchSize": 1
+            }
+        },
+        {
+            "inputConfig": {
+              "gcsSource": {
+                "uri": "gs://sflectures/Loop Invariants Part 1.pdf"
+              },
+              "mimeType": "application/pdf"
+            },
+            "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+            "outputConfig": {
+              "gcsDestination": {
+                "uri": "gs://sflectures/loop-invariants-part-1"
+              },
+              "batchSize": 1
+            }
+        },
+        {
+            "inputConfig": {
+              "gcsSource": {
+                "uri": "gs://sflectures/Loop Invariants Part 2.pdf"
+              },
+              "mimeType": "application/pdf"
+            },
+            "features": [{"type": "DOCUMENT_TEXT_DETECTION"}],
+            "outputConfig": {
+              "gcsDestination": {
+                "uri": "gs://sflectures/loop-invariants-part-2"
+              },
+              "batchSize": 1
+            }
+        }
+  ]
+}
+  
