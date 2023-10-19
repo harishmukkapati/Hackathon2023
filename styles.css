@@ -52,9 +52,15 @@ body, html {
     display: flex;
     width: 100%;
     margin: auto;
-    border-radius: 25px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /*box-shadow*/
+    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+}
+
+/*Stronger box-shadow on hover*/
+.search-container:hover {
+    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28), 0 6px 12px rgba(32, 33, 36, 0.28);
 }
 
 .search-bar {
@@ -64,6 +70,12 @@ body, html {
     font-size: 1rem;
     box-sizing: border-box;
     outline: none;
+    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+    transition: transform 0.2s ease-in-out;
+}
+
+.search-bar:active {
+    transform: scale(1.02); /* Reduces the size to 95% of the original */
 }
 
 .search-bar::placeholder {
