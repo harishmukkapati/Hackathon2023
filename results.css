@@ -1,11 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 body {
-    font-family: 'Arial', sans-serif;
-    background: tan;
+    font-family: 'Open Sans', sans-serif;
     background: linear-gradient(80deg, tan, lightblue, lightgreen, tan);
     background-size: 400% 400%;
     animation: gradientAnimation 5s ease-in-out infinite;
     height: 100%;
-    overflow: hidden;
+    overflow: auto; /* Allow scrolling */
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .card {
@@ -15,23 +28,45 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: white;
     transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border-radius: 10px;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 250px; /* Adjust based on your preference */
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards in a row */
+    gap: 20px; /* Spacing between cards */
+    padding: 20px;
 }
 
 .card:hover {
     transform: scale(1.05);
-}
-
-.card-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
 .card-title {
     margin-bottom: 10px;
+    font-weight: bold;
+    color: white;
 }
 
 .card-text {
+    margin-bottom: 20px;
+    color: white;
+}
+
+.card-image {
+    width: 100px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
     margin-bottom: 20px;
 }
 
@@ -47,4 +82,40 @@ body {
 
 .btn:hover {
     background-color: #8a2145;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    border-radius: 20px;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    text-align: center;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
 }
