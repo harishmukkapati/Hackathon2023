@@ -17,11 +17,12 @@ function handleSearch(event) {
 
     // Store the search string for later use
     sessionStorage.setItem('searchString', searchBar.value);
+    console.log("Setting searchString:", searchBar.value);
 
     // Use a timeout to simulate a loading time and then redirect
     setTimeout(() => {
         window.location.href = 'results.html';
-    }, 2000);  // Redirect after 2 seconds. Adjust as necessary.
+    }, 100);  // Redirect after 2 seconds. Adjust as necessary.
 }
 
 
@@ -33,6 +34,3 @@ searchBar.addEventListener('keypress', (event) => {
 });
 
 searchButton.addEventListener('click', handleSearch);
-
-
-
