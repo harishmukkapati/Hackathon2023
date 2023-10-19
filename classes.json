@@ -1,0 +1,253 @@
+{
+    "universities": [
+        {
+            "name": "The Ohio State University",
+            "classes": [
+                {
+                    "course_code": "CSE 2221",
+                    "alternate_name": "Software 1: Software Components",
+                    "llm_link": "_________"
+                },
+                {
+                    "course_code": "CSE 2231",
+                    "alternate_name": "Software 2: Software Development & Design"
+                },
+                {
+                    "course_code": "CSE 2321",
+                    "alternate_name": "Foundations 1: Discrete Structures"
+                },
+                {
+                    "course_code": "Physics 1250",
+                    "alternate_name": "Physics: Mechanics, Work and Energy, Thermal Physics"
+                },
+                {
+                    "course_code": "MATH 1151",
+                    "alternate_name": "Calculus 1"
+                },
+                {
+                    "course_code": "English 1110.01",
+                    "alternate_name": "First-Year Composition 1"
+                },
+                {
+                    "course_code": "History 1151",
+                    "alternate_name": "American History to 1877"
+                },
+                {
+                    "course_code": "ECE 2060",
+                    "alternate_name": "Introduction to Digital Logic"
+                }, 
+                {
+                    "course_code": "ECE 2020",
+                    "alternate_name": "Introduction to Analog Systems and Circuits"
+                },
+                {
+                    "course_code": "ENR 2100",
+                    "alternate_name": "Introduction to Environmental Science"
+                },
+                {
+                    "course_code": "Philisophy 2338",
+                    "alternate_name": "Computer Ethics"
+                },
+                {
+                    "course_code": "CSE 3521",
+                    "alternate_name": "Survey of Artificial Intelligence 1: Basic Techniques"
+                }
+            ],
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Ohio_State_Buckeyes_logo.svg"
+        },
+        {
+            "name": "Georgia Institute of Technology",
+            "classes": [
+                {
+                    "course_code": "CS 1301",
+                    "alternate_name": "Introduction to Computing"
+                },
+                {
+                    "course_code": "CS 1331",
+                    "alternate_name": "Introduction to Object Oriented Programming"
+                },
+                {
+                    "course_code": "CS 1332",
+                    "alternate_name": "Data Structures and Algorithms for Applications"
+                },
+                {
+                    "course_code": "CS 2200",
+                    "alternate_name": "Computer Systems and Networks"
+                },
+                {
+                    "course_code": "CS 2316",
+                    "alternate_name": "Data Manipulation for Science and Industry"
+                },
+                {
+                    "course_code": "CS 3240",
+                    "alternate_name": "Languages and Computation"
+                },
+                {
+                    "course_code": "CS 3600",
+                    "alternate_name": "Introduction to Artificial Intelligence"
+                }
+            ],
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Georgia_Tech_Yellow_Jackets_logo.svg"
+        },
+        {
+            "name": "Massachusetts Institute of Technology",
+            "classes": [
+                {
+                    "course_code": "6.100A",
+                    "alternate_name": "Introduction to Computer Science Programming in Python"
+                },
+                {
+                    "course_code": "6.100L",
+                    "alternate_name": "Introduction to Computer Science and Programming"
+                },
+                {
+                    "course_code": "6.1010",
+                    "alternate_name": "Fundamentals of Programming"
+                },
+                {
+                    "course_code": "6.1020",
+                    "alternate_name": "Software Construction"
+                },
+                {
+                    "course_code": "6.1200[J]",
+                    "alternate_name": "Mathematics for Computer Science"
+                },
+                {
+                    "course_code": "6.1903",
+                    "alternate_name": "Introduction to Low-Level Programming in C and Assembly"
+                },
+                {
+                    "course_code": "6.8611",
+                    "alternate_name": "Quantitative Methods for Natural Language Processing (CI-M)"
+                },
+                {
+                    "course_code": "6.8701",
+                    "alternate_name": "Computational Biology: Genomes, Networks, Evolution"
+                }
+            ],
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/0/0c/MIT_logo.svg"
+        },
+        {
+            "name": "Stanford University",
+            "classes": [
+                {
+                    "course_code": "CS 106A",
+                    "alternate_name": "Programming Methodology"
+                },
+                {
+                    "course_code": "CS 185",
+                    "alternate_name": "Coding with LLM Assistants"
+                },
+                {
+                    "course_code": "CS 193P",
+                    "alternate_name": "iOS Application Development"
+                },
+                {
+                    "course_code": "CS 184",
+                    "alternate_name": "Bridging Policy and Tech Through Design"
+                },
+                {
+                    "course_code": "CS 129",
+                    "alternate_name": "Applied Machine Learning"
+                },
+                {
+                    "course_code": "CS 131",
+                    "alternate_name": "Computer Vision: Foundations and Applications"
+                },
+                {
+                    "course_code": "CS 143",
+                    "alternate_name": "Compilers"
+                },
+                {
+                    "course_code": "CS 144",
+                    "alternate_name": "Introduction to Computer Networking"
+                },
+                {
+                    "course_code": "CS 148",
+                    "alternate_name": "Introduction to Computer Graphics and Imaging"
+                },
+                {
+                    "course_code": "CS 154",
+                    "alternate_name": "Introduction to the Theory of Computation"
+                }
+            ],
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Stanford_Cardinal_logo.svg"
+        },
+        {
+            "name": "University of Michigan",
+            "classes": [
+                {
+                    "course_code": "EECS 183",
+                    "alternate_name": "Elementary Programming Concepts"
+                },
+                {
+                    "course_code": "EECS 280",
+                    "alternate_name": "Programming and Introductory Data Structures"
+                },
+                {
+                    "course_code": "ENGR 101",
+                    "alternate_name": "Introduciton to Computers and Programming"
+                },
+                {
+                    "course_code": "EECS 203",
+                    "alternate_name": "Discrete Math"
+                },
+                {
+                    "course_code": "EECS 281",
+                    "alternate_name": "Data Structures and Algorithms"
+                },
+                {
+                    "course_code": "EECS 376",
+                    "alternate_name": "Foundations of Computer Science"
+                },
+                {
+                    "course_code": "EECS 485",
+                    "alternate_name": "Web Systems"
+                },
+                {
+                    "course_code": "EECS 484",
+                    "alternate_name": "Database Management Systems"
+                },
+                {
+                    "course_code": "EECS 441",
+                    "alternate_name": "Mobile App Development for Entrepreneurs"
+                }
+            ],
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Michigan_Wolverines_logo.svg"
+        },
+        {
+            "name": "University of California, Berkeley",
+            "classes": [
+                {
+                    "course_code": "NEUROSC C217D",
+                    "alternate_name": "Biological and Public Health Aspects of Alzheimer's Disease"
+                },
+                {
+                    "course_code": "NEUROSC C265",
+                    "alternate_name": "Nueral Computation"
+                },
+                {
+                    "course_code": "NEUROSC C261",
+                    "alternate_name": "Cellular and Developmental Neurobiology"
+                },
+                {
+                    "course_code": "CS 3",
+                    "alternate_name": "Introduction to Symbolic Programming"
+                },
+                {
+                    "course_code": "CS C8",
+                    "alternate_name": "Foundaitons of Data Science"
+                },
+                {
+                    "course_code": "CS 70",
+                    "alternate_name": "Discrete Mathematics and Probability Theory"
+                },
+                {
+                    "course_code": "CS 61B",
+                    "alternate_name": "Data Structures"
+                }
+            ],
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/8/82/University_of_California%2C_Berkeley_logo.svg"
+        }
+    ]
+}

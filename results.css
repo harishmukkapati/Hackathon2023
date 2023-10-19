@@ -1,0 +1,50 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: tan;
+    background: linear-gradient(80deg, tan, lightblue, lightgreen, tan);
+    background-size: 400% 400%;
+    animation: gradientAnimation 5s ease-in-out infinite;
+    height: 100%;
+    overflow: hidden;
+}
+
+.card {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-title {
+    margin-bottom: 10px;
+}
+
+.card-text {
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #b92a72;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #8a2145;
+}
