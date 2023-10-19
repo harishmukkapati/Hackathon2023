@@ -4,9 +4,12 @@
             "name": "The Ohio State University",
             "classes": [
                 {
+                    "course_code": "CSE 1110",
+                    "alternate_name": "Introduciton to Computing Technology"
+                },
+                {
                     "course_code": "CSE 2221",
-                    "alternate_name": "Software 1: Software Components",
-                    "llm_link": "_________"
+                    "alternate_name": "Software 1: Software Components"
                 },
                 {
                     "course_code": "CSE 2231",
@@ -51,6 +54,58 @@
                 {
                     "course_code": "CSE 3521",
                     "alternate_name": "Survey of Artificial Intelligence 1: Basic Techniques"
+                },
+                {
+                    "course_code": "CSE 1110",
+                    "alternate_name": "Introduction to Computer-Assisted Problem Solving"
+                },
+                {
+                    "course_code": "AEROENG 2200",
+                    "alternate_name": "Introduction to Aerospace Engineering 1"
+                },
+                {
+                    "course_code": "AEROENG 2405",
+                    "alternate_name": "Thermodynamics"
+                },
+                {
+                    "course_code": "AEROENG 3520",
+                    "alternate_name": "Flight Vehicle Dynamics"
+                },
+                {
+                    "course_code": "AEROENG 3521",
+                    "alternate_name": "Fundamentals of Flight Vehicle Control"
+                },
+                {
+                    "course_code": "AVIATN 3300",
+                    "alternate_name": "Aviation Human Factors and Safety"
+                },
+                {
+                    "course_code": "AVIATN 3340.01",
+                    "alternate_name": "Aviation Human Factors Transition"
+                },
+                {
+                    "course_code": "AVIATN 3400",
+                    "alternate_name": "Aviation Accident Investigation"
+                },
+                {
+                    "course_code": "BIOMEDE 2200",
+                    "alternate_name": "Quantitative Principles of Cellular and Molecular Systems"
+                },
+                {
+                    "course_code": "BIOMEDE 2700",
+                    "alternate_name": "Numerical Simulations in BME"
+                },
+                {
+                    "course_code": "BIOMEDE 2800",
+                    "alternate_name": "Anatomy for Engineers"
+                },
+                {
+                    "course_code": "BIOMEDE 3701",
+                    "alternate_name": "Biomedical Engineering Domain Lab"
+                },
+                {
+                    "course_code": "BIOMEDE 3702",
+                    "alternate_name": "Measurements and Instrumentation Lab"
                 }
             ],
             "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Ohio_State_Buckeyes_logo.svg"
@@ -169,6 +224,26 @@
                 {
                     "course_code": "CS 154",
                     "alternate_name": "Introduction to the Theory of Computation"
+                },
+                {
+                    "course_code": "CS 221",
+                    "alternate_name": "Artificial Intelligence: Principles and Techniques"
+                },
+                {
+                    "course_code": "CS 229",
+                    "alternate_name": "Machine Learning"
+                },
+                {
+                    "course_code": "ECON 50",
+                    "alternate_name": "Economic Analysis I"
+                },
+                {
+                    "course_code": "ECON 118",
+                    "alternate_name": "Development Economics"
+                },
+                {
+                    "course_code": "ECON 135",
+                    "alternate_name": "Foundations of Finance"
                 }
             ],
             "logo": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Stanford_Cardinal_logo.svg"
@@ -245,9 +320,51 @@
                 {
                     "course_code": "CS 61B",
                     "alternate_name": "Data Structures"
+                },
+                {
+                    "course_code": "ENGLISH R1A",
+                    "alternate_name": "Reading and Composition"
+                },
+                {
+                    "course_code": "ENGLISH 25",
+                    "alternate_name": "English as a Language"
+                },
+                {
+                    "course_code": "ENGLISH 26",
+                    "alternate_name": "Introduction to the Study of Poetry"
+                },
+                {
+                    "course_code": "PHYSICS 110B",
+                    "alternate_name": "Electromagnetism and Optics"
+                },
+                {
+                    "course_code": "PHYSICS 129",
+                    "alternate_name": "Particle Physics"
                 }
             ],
             "logo": "https://upload.wikimedia.org/wikipedia/commons/8/82/University_of_California%2C_Berkeley_logo.svg"
+        },
+        {
+            "name": "University of Illinois at Urbana-Champaign",
+            "classes": [
+                {
+                    "course_code": "CS 173",
+                    "alternate_name": "Discrete Structures"
+                },
+                {
+                    "course_code": "CS 225",
+                    "alternate_name": "Data Structures"
+                },
+                {
+                    "course_code": "CS 307",
+                    "alternate_name": "Modeling and Learning in Data Science"
+                },
+                {
+                    "course_code": "CS 361",
+                    "alternate_name": "Probability & Statistics for Computer Science"
+                }
+            ],
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/9/9c/University_of_Illinois_at_Urbana%E2%80%93Champaign_logo.svg"
         }
     ]
 }
