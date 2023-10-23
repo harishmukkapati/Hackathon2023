@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', serif;
+    font-family: 'Open Sans', sans-serif;
     background: linear-gradient(45deg, #cec5d9, #3bc0a6);
     background-size: 400% 400%;
     animation: Gradient 5s ease-in-out infinite;
@@ -38,7 +40,7 @@ body, html {
 .title {
     font-family: 'Poppins', sans-serif;
     font-size: 4rem;
-    color: darkblue;
+    color: #C03B55;
     margin-bottom: 10px;
 }
 
@@ -75,7 +77,7 @@ body, html {
 }
 
 .search-bar:active {
-    transform: scale(1.02); /* Reduces the size to 95% of the original */
+    transform: scale(1.0); /* Reduces the size to 95% of the original */
 }
 
 .search-bar::placeholder {
