@@ -1,0 +1,4263 @@
+SOFTWARE ONE LECTURES
+
+- Lecture 1 (Course Introduction):
+
+CSE 2221 Software I: Software  Components 
+
+Restated Learning Outcomes 
+• Theme 1: software engineering concepts – Be familiar with sound software engineering  principles for component-based object-oriented  software design 
+  
+Software Engineering Concepts 
+• Component-based software engineering 
+	• System thinking 
+		• Mathematical modeling 
+		• Design-by-contract 
+		• Client vs. implementer view 
+• Object-oriented software building blocks 
+	• Components and their relationships 
+• Discipline 
+	• Single-point control over change 
+	• Adherence to conventions 
+
+Restated Learning Outcomes 
+• Theme 2: Java programming language
+	• Be competent with Java programming
+  
+
+
+Java Programming Language 
+• Core syntax and features 
+	• Variables, types, values, operators, expressions,  control flow (selection, iteration) 
+	• Reference vs. value types 
+	• Interfaces, classes, methods, objects  
+	• Inheritance, polymorphism 
+	• Generics, exceptions 
+• Libraries 
+	• Input/output, Java’s Swing for GUIs 
+	• Collections (e.g., List, Map, Queue, Set, …)
+
+Restated Learning Outcomes 
+	• Theme 3: industry-standard tools 
+		• Be familiar with the use of industrial-strength  software development tools 
+  
+
+
+Industry-Standard Tools 
+• Eclipse 
+	• Industrial-strength open-source IDE 
+	• Many (free) plug-ins/extensions, including  Checkstyle and SpotBugs 
+• JUnit 
+	• Industry-standard library for unit-testing  software components 
+• Javadoc 
+	• Industry-standard documentation utility for  Java programs 
+
+Restated Learning Outcomes 
+• Theme 4: professional best practices 
+	• Be familiar with Java programming “best  practices” 
+
+
+Professional Best Practices 
+• Problem 
+	• Complex language mechanisms make it easy  to produce code that is wrong, brittle, inextensible, and hard to maintain 
+• Solution 
+	• Discipline that helps (but does not guarantee)  that developers write better code 
+• Examples 
+	• Naming conventions, coding conventions 
+	• Design-by-contract and programming-to-the- interface 
+
+Prerequisites 
+• Previous programming experience – Syntax, compilation, execution 
+	• Variables, types, expressions 
+	• Control flow (if, if-else, while, etc.) 
+	• Procedures/functions/methods 
+• Math maturity (introductory calculus) 
+• Ability/willingness to learn on your own
+	• Goal: develop “life-long learning” capabilities 
+9 May 2023 OSU CSE 10
+Resources 
+• Class meetings 
+	• Ask questions! 
+	• Answer questions! 
+• Instructor and grader 
+	• Make sure they know you by name 
+	• Visit during office hours or make appointment – Ask questions! 
+	• Answer questions!
+• Course web site 
+	• http://web.cse.ohio-state.edu/software/ 
+	• All materials and links 
+• Class website on Carmen 
+	• http://carmen.osu.edu/ 
+	• Announcements 
+	• Assignment submissions 
+	• Grades 
+	• Additional materials 
+• MS Teams CSE 2221 team for this semester 
+	• multiple channels for questions and discussions about course  material and assignments 
+• Online Java tutorials 
+	• http://docs.oracle.com/javase/tutorial/index.html • Online OSU CSE components API – http://cse.osu.edu/software/common/doc/ 
+• Online Java libraries API 
+	• http://docs.oracle.com/javase/8/docs/api/ 
+• Many other Java resources available on  the web! 
+• Many Java books available for free to  OSU students via O’Reilly Online Learning
+	• https://learning.oreilly.com/home/ 
+• Recommended books 
+	• C.S. Horstmann, Java for Everyone, John Wiley and  Sons, 2013 https://library.ohio-state.edu/record=b8347056~S7
+	• J. Bloch, Effective Java, 3nd ed., Prentice Hall, 2018 https://library.ohio-state.edu/record=b9496067~S7 
+
+
+
+- Lecture 2 (Java Overview):
+
+Java Overview 
+  
+What is Java? 
+• Programming language developed in early  1990s by Sun Microsystems (now part of Oracle) 
+• Based on C/C++ 
+	• Similar syntax, control, data structures 
+	• Imperative, object-oriented 
+• Originally designed for interactive television, found its initial success in Internet applications 
+	• Now viewed as a general-purpose programming language 
+• Currently enjoys widespread acceptance
+
+Java: Compilation 
+• The Java compiler checks the source code of  a program in a .java file; if and only if there are  no compile-time errors, it generates bytecode for that program and saves it in a .class file 
+	• Eclipse has its own Java compiler that continually and  incrementally compiles source code even as it is  being edited; a compile-time error is seen immediately and bytecode is available immediately if no errors 
+	• A batch-style compiler called javac is part of the Java  Development Kit (JDK) 
+
+Java: Execution 
+• The Java Virtual Machine is a virtual computer
+	• The JVM is just like any other program that runs on  real physical hardware (e.g., an Intel chip) and  operating system (e.g., Linux, Mac OS X, Windows)
+	• The “launcher” of the JVM for your computer and OS  loads the JVM and your program’s .class file(s), and the JVM then executes your program by  interpreting the bytecode that is loaded 
+	• A launcher called java and the JVM are part of the  Java Runtime Environment (JRE) for your computer  and OS 
+
+Java End-to-End 
+• Java source code (a text file) 
+	• Java compiler generates bytecode from (legal, though not necessarily “correct”) program source code. 
+• Java bytecode (a “binary” file) 
+	• MyProg.java MyProg.class Launcher loads JVM and your bytecode, which JVM executes by interpreting it.
+• Same bytecode can be  run on other hardware/OS with its  own JVM.
+
+Significance of JVM 
+• Portability 
+	• Java slogan: “Write once, run anywhere”
+	• JVM is ubiquitous 
+• Universality 
+	• Program source code need not be in Java 
+• Performance 
+	• Extra layer comes at (surprisingly small)  penalty in performance 
+
+
+- Lecture 3 (Output, Strings, Input):
+
+Output, Strings, Input
+
+
+Simplest Java Program?
+* public class HelloWorld { public static void main(String[] argos) { System.out.println(“Hello World!”);
+* Public class declares this code to be a software component for which bytecode should be generated by the compiler; HelloWorld is the name of the class
+* public static void is required here when you want a class to include a “main” program that can be executed by the JVM (and it must be called main)
+* String[] argos means that main expects the JVM to hand it an array of Strings (called command-line arguments) when it is executed
+* System.out is an object you may use to give output to the user; println is a method of that object that you may call (invoke) to output something on its own line
+* “Hello World!” is a character string to be output to the user
+
+
+Another Version
+-----
+import components.simplewriter.SimpleWriter;
+import components.simplewriter.SimpleWriter1L;
+public final class HelloWorld {
+        private HelloWorld {
+        }
+        public static void main (String[] args) {
+                SimpleWriter out = new SimpleWriter1L();
+                out.println(“Hello World!”);
+                out.close();
+        }
+}
+-----
+* import indicates you want to use a component in your code; components is a package containing OSU CSE components; its simplewriter package offers a few advantages over using built-in System.out
+* public means anyone can use this class
+* final means no one can incrementally change this class by using inheritance
+* private HelloWorld() means the HelloWorld class does not define a type, i.e., no one can create an object from the class HelloWorld because it is a utility class
+* SimpleWriter is the type of a newly declared variable; out is the name of that variable
+* new creates a new object to which the variable is a reference; SimpleWriter1L is the class whose code should be used when any method of out is called
+* out has a println method too, nearly identical to that of System.out
+* out has a close method as well, and you need to call it when you are done using out
+
+
+Output: SimpleWriter
+* The OSU CSE components provide a simple way to provide output to a user via the console or a file
+-----
+SimpleWriter consoleOut = new SimpleWriter1L();
+SimpleWriter fileOut = new SimpleWriter1L(“foo.txt”);
+-----
+
+
+Output Examples
+-----
+consoleOut.print(“Prompt: “);
+consoleOut.println();
+fileOut.println(“A line.”);
+-----
+
+
+Closing Output
+* When you are done writing output to a SimpleWriter stream, you must close the stream:
+-----
+consoleOut.close();
+fileOut.close();
+-----
+
+
+Character Strings
+* Java has special features to deal with character strings
+* Examples
+-----
+SimpleWriter fileOut = new SimpleWriter1L(“foo.txt”);
+fileOut.print(“Hi, Mr. Foo.”);
+-----
+* Java has special features to deal with character strings
+* Example
+   * “foo.txt” is a character string
+   * “Hi, Mr. Foo.” is a character string
+* This intro is just the tip of the iceberg!
+
+
+Character-String Literals
+* Character-string constants, also called String literals, are enclosed in double-quotes, e.g.: “Hello World!”
+* Character strings can be concatenated (joined together to create new character strings) using the + operator, e.g.: “Hello “ + “World!”
+
+
+String Variables
+* You may declare a String variable, and assign an initial character-string value to it, as follows: String cheer = “Go”;
+* You may assign any other character-string value to the same variable later, e.g.: cheer = cheer + “ Bucks!”;
+
+
+Input: SimpleReader
+* The OSU CSE components provide a simple way to get input from a user via the keyboard or a file
+-----
+SimpleReader keyboardIn = new SimpleReader1L();
+SimpleReader fileIn = new SimpleReader1L(:foo.txt”);
+-----
+
+
+Input Examples
+-----
+String line = keyboardIn.nextLine();
+line = fileIn.nextLine();
+-----
+* The nextLine() method, which reads up through and including the next line separator, is really the only method you need to read input from the keyboard and text files.
+
+
+Closing Input
+* When you are done reading input from a SimpleReader stream, you must close the stream:
+-----
+keyboardIn.close();
+fileIn.close();
+-----
+
+
+Resources
+* Java Tutorials (“Hello World” program)
+   * http://docs.oracle.com/javase/tutorial/getStarted/application/index.html
+* OSU CSE components API (SimpleWriter, SimpleReader)
+   * http://cse.osu.edu/software/common/doc/
+
+
+- Lecture 4 (Variables, Types, Values):
+
+Variables, Types, Values
+
+
+Variables
+* A variable is the name of a “location” that “stores” a value of a particular type
+   * We might say the variable “has” that value
+   * We might say the variable “has” that type or “is of” that type
+
+
+Types
+* A type is the name of the set of all possible values that a variable might have
+* Examples:
+   * A variable of type String might have values like “foo”, “Hello World”, etc.
+   * A variable of type int might have values like -1.18,etc
+   * A variable of type double might have values like 3.1416, 10.0, etc
+
+
+Program vs. Mathematical Variables
+* A program variable has a particular value at any one time during program execution, and that value (generally) may change at other times
+* A mathematical variable stands for an arbitrary but fixed value
+* A program type has a corresponding mathematical type that models it
+   * When reasoning about a program variable of a given program type, treat its value at any given time as of it were a mathematical variable of the corresponding mathematical type.
+* Mathematical Models
+   * Program Type
+      * String
+         * Mathematical Type: string of character
+      * boolean
+         * Mathematical Type: boolean
+      * char
+         * Mathematical Type: character
+      * int
+         * Mathematical Type: integer (-2147483648 through 2147483648)
+      * double
+         * Mathematical Type: real (about plus or minus 10 ^(plus or minus 308), 15 significant digits)
+   * String is built-in to Java; boolean, char, int, and double are among the 8 primitive (and also built-in) types of Java
+   * All these mathematical types are “built-in” to mathematics
+
+
+Declaring a Variable
+* When you declare a program variable, you both provide a name for a location to store its value, and indicate its program type
+   * Recall: the program type determines the mathematical type, which in turn determines the possible values the variable can have
+* The standard Java convention for naming variables is to use camel case: start with a lowercase letter and only capitalize the first letter of each following word, e.g., myLuckyNumber
+
+
+Initializing a Variable
+* To initialize a variable, you assign it a value
+   * Recall: the program type determines the mathematical type, which in turn determines the possible values the variable can have
+
+
+Literals
+* A data value appearing, literally, in a program is called a literal
+-----
+String fileName = “foo.txt”
+boolean found = false;
+char win = ‘W’;
+int j = 13;
+double ht = 9.27;
+-----
+* “foo.txt” is a String literal; written as characters between double-quote marks: “...”
+* false is a boolean literal; must either be true or false.
+* ‘W’ is a char literal; normally written as a single character between single-quote marks: ‘...’
+* 13 is an int literal; normally written (as in mathematics) as a decimal constant
+* 9.27 is a double literal; normally written (as in mathematics) as a decimal constant with a decimal point
+
+
+Forms of Literals
+* Program Type
+   * String
+      * Literal examples
+         * “I\’m’”
+         * “at OSU”
+   * boolean
+      * Literal examples
+         * true
+         * false
+   * char
+      * Literal examples
+         * ‘A’
+         * ‘\t’
+         * ‘\”’
+         * ‘\u03c0’
+   * int
+      * Literal examples
+         * 29
+         * -13
+         * 035
+         * 0x1a
+   * double
+      * Literal examples
+         * 18.
+         * 18.0
+         * 8E-4
+         * 6.022E23
+
+
+Constants
+* A variable whose value is initialized and never changed is called a constant
+-----
+final int myLuckyNumber = 13;
+final double avogadro - 6.022E23;
+-----
+* The keyword final indicates to the compiler your intent that a variable is actually a constant
+* When constants are declared inside a method, the standard Java convention is to use camel case just like for variables.
+* When constants are declared at the class level, the standard Java convention is to use all uppercase letters and to separate the words with ’_’.
+
+
+Resources
+* Java for Everyone, Chapter 2
+   * https://library.ohio-state.edu/record=b8347056%7ES7
+
+
+
+- Lecture 5 (Operators, Expressions, Statements, Control Flow)
+
+
+Operators, Expressions, Statements, Control Flow
+
+
+Operators
+* An operator is a symbol (or combination of a couple symbols) that is used with variables and values to simplify how you write certain program expressions
+   * Usually, operators are designed to mimic mathematical notation - but do not be fooled into confusing programming and mathematics!
+
+
+Most Common Operators
+* String
+   * +
+* boolean
+   * !
+   * ||
+   * &&
+   * ==
+   * !=
+* char
+   * <
+   * >
+   * <=
+   * >=
+   * ==
+   * !=
+* int
+   * ++
+   * --
+   * +
+   * -
+   * *
+   * /
+   * %
+   * <
+   * >
+   * <=
+   * >=
+   * ==
+   * !=
+* double
+   * +
+   * -
+   * *
+   * /
+   * <
+   * >
+* Best Practice: do not use == or != with Strings, but rather the equals method
+* Operators for or (||) and and(&&) use short-circuit evaluation
+* Best Practice: be careful with the remainder (%) operator: the second operand must be positive; this is, unfortunately, not “clock arithmetic”
+* Best practice: do not check doubles for equality
+
+
+Expressions
+* An expression is a “syntactically well-formed and meaningful fragment” (roughly analogous to a word in natural language)
+* Meaningful?
+   * It has a value (of some type, of course)
+
+
+Some Expressions
+* Examples of code fragments that are expressions:
+   * i
+   * j + 7
+   * “Hello” + “World!”
+   * keyboardIn.nextLine()
+   * n == 0
+   * new SimpleWriter1L()
+      * This fragment creates a new object type SimpleWriter1L, and its value is a reference to that object
+
+
+Statements
+* A statement is a “smallest complete unit of execution” (roughly analogous to a sentence in natural language)
+* A simple statement is terminated with a semicolon ‘;’
+
+
+Simple Statements
+* Some examples of simple statements
+   * i = 12;
+   * j += 7;
+      * This is the same as j = j + 7;
+   * SimpleWriter fileOut = new SimpleWriter1L(“foo.txt”);
+   * fileout.print(“Hi, Mr. Foo”);
+
+
+Assignment Statement
+* Assignment statement form;
+   * variable = expression;
+* Copies the value of the expression on the right side of the assignment operator = to the variable on the left side
+* The = in Java code does not mean “equals” like in math!
+
+
+Compound Statements / Blocks
+* Any sequence of zero or more statements enclosed in {...} is a block
+* Example:
+-----
+{
+        String s = in.nextLine();
+        out.println(“s = “ + s);
+}
+-----
+* The scope of variable s is just the block in which it is declares
+* There is no semicolon after a block.
+
+
+Control Flow
+* Conditional or selection statements
+   * if
+   * if-else
+   * if-else-if
+   * switch
+* Loop or iteration statements
+   * while
+   * for
+   * do-while
+* if statement
+-----
+if (test) { 
+then_block 
+}
+-----
+   * Any boolean expression may go in the test area
+   * Best Practice: even a single statement here should be in a block.
+* if-else statement
+-----
+if (test) {
+        then_block
+} else {
+        else_block
+}
+-----
+* Best Practice: Even a single statement here should be in a block
+* if-else-if statement
+-----
+if (test_1) {
+        then_block_1
+} else if (test_2) {
+        then_block_2
+} else {
+        else_block
+}
+-----
+* The else if part may be repeated
+* while statement
+-----
+while (test) {
+        while_block
+}
+-----
+
+
+Best Practices for boolean
+* If you want to say this, e.g., in an if or while condition:
+   * b == true
+      * Say this instead:
+         * b
+   * b == false
+      * Say this instead:
+         * !b
+
+
+Resources
+* Java for Everyone, Chapter 3
+* Java for Everyone, Chapter 4
+   * https://library.ohio-state.edu/record=b8347056%7ES7
+
+
+
+- Lecture 6 (Monte Carlo Estimation)
+
+Monte Carlo Estimation 
+
+Monte Carlo Methods 
+• Class of computational methods that use  random sampling to estimate results – Named after the famous Monte Carlo Casino
+
+
+- Lecture 7 (Static Methods)
+
+Static Methods 
+
+Static Method 
+• A static method (class method) is a  block of code with a name, using which it can be called (invoked) to perform its  computation 
+• The method “takes over” execution when it  is called, until it returns to the calling  program at the point it was called 
+• Also known as a routine, subroutine,  operation, function, or procedure 
+
+Anatomy of a Static Method 
+-----
+private static int distance( int a, int b) { 
+	int d = b – a; 
+	return d; 
+}
+-----
+• The method header includes the method's return type, its name, and its parameter list. The method name and the parameter types comprise the method signature.
+• The method body consists of the block of code that is executed when the method is called.
+• private limits the places from which this static method may be called: only from within this class; public here would allow it to be called from other classes, too.
+• int means the method provides a value of this type to the caller when it returns; void here would mean the method provides no value at all. 
+• distance is the name of this static method, which is used when calling it.
+• int a is the first formal parameter of the method, whose initial value is supplied at the point of the call; int b is the second formal parameter method is a statement that hands control back to the caller if a value is returned by the method, then an expression after return provides this value.
+
+Return Statements 
+• Every path of execution through a  method that returns a value must end in a  return statement with an expression of the  return type of the method 
+• A method that does not return a value may have return statement(s) without any such  expression; but by default, it returns to the  caller anyway when the method body completes execution 
+
+Resources 
+• Java for Everyone, Chapter 5 
+– https://library.ohio-state.edu/record=b8347056~S7 18 January 2021 OSU CSE 13
+
+
+
+- Lecture 8 (Parameter Passing)
+
+Parameter Passing 
+
+
+Connecting Caller and Callee 
+• When you call a method, how are the  arguments connected to the formal  parameters? 
+• When the called method body returns, how  are results communicated back to the code  that called the method? 
+
+Example: GCD 
+• Suppose we have a static method gcd that  computes and returns the greatest  common divisor (GCD) of two ints:
+----- 
+public static int gcd(int i, int j) { ... 
+} 
+-----
+• For example: 
+	– GCD(24,80) = 8 
+	– GCD(24,24) = 24 
+
+How Calls Work In Java 
+-----
+public static int gcd(int i, int j) { 
+	int k = 1; 
+	... 
+	return k; 
+}
+
+... 
+int a, b; 
+... 
+int c = gcd(a, b); 
+
+-----
+ 
+• This is the method gcd that is  being called; i and j are its  formal parameters.     
+• This is a fragment of the calling  program; a and b are the  arguments to this call of gcd.
+• Suppose the solid red arrow  indicates where program flow-of control has taken us so far.     
+
+Connecting Caller and Callee 
+• When you call a method, how are the  arguments connected to the formal  parameters? 
+	• The argument values are copied into the formal  parameters to initialize them 
+• When the called method body returns, how  are results communicated back to the code  that called the method? 
+	• Only the returned value is copied back to the  caller; the formal parameters are simply “lost” 
+
+Names for This? 
+• Parameter-passing mechanism of Java: – May be termed call-by-copying because  argument values are copied into formal  parameters 
+	• May be termed call-by-value because  argument values are copied into formal parameters 
+• There are other ways it might have been  done (and is done in some languages)
+
+
+- Lecture 9 (Arrays)
+
+Arrays 
+
+
+Array 
+• An array is a group of similar variables, all  of the same type, and with systematically  related names that involve special syntax  using […] 
+• Each array element, e.g., a[0], a[1],  …, acts like a single variable of the type  used in the declaration of array a 
+
+Compare to Mathematics 
+• This is entirely parallel to the use of  subscripted variables in mathematics, e.g.,  x0, x1, … 
+• Just as x0 is pronounced “x-sub-0” in  mathematics, a[0] is usually pronounced  “a-sub-0” in a Java program 
+• Consider, similarly, xi+2 and a[i+2] 24 January 2021 OSU CSE 3
+• In mathematics, a group of related  variables x0, x1, …, xn-1 is called a  vector x of length n 
+• In Java, a group of variables a[0], a[1],  …, a[n-1] is called an array a of length  n 
+
+Declaring an Array  
+int[] a;
+• The [] in this declaration  indicates there will be some  number of variables named  a[0], a[1], …  But, how many?
+
+Declaring and Creating an Array  
+int[] a = new int[4]; 
+• This many! Here, 4 is called the  length of the array, and it is the  value of another variable  introduced by this declaration:  a.length   
+
+Declaring and Initializing an Array  
+int[] a = { 6, 18, 9, –10 }; 
+• Here again, we have:     
+	• a.length = 4 
+	• But now the 4 array elements  have different initial values: 
+		• a[0] = 6 
+		• a[1] = 18, etc.
+
+Array Indexing with Constants 
+• You may write an int constant (literal) c between […] as in a[c], so long as its  value satisfies: 
+	• 0 ≤ c < a.length 
+• Example: 
+	• int[] a = new int[4]; 
+	• a[3] = 17; 
+
+Array Indexing in General 
+• You may write an int-valued expression  exp between […] as in a[exp], so long  as its value satisfies: 
+	• 0 ≤ exp < a.length 
+• Example: 
+	• int[] a = new int[4]; 
+	• a[a.length – 1] = 17; 
+		• After this code is  executed, we have: a[3] = 17
+
+Resources 
+• Java Tutorials 
+– http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html • Java for Everyone, Chapter 6 – https://library.ohio-state.edu/record=b8347056~S724 January 2021 OSU CSE 21
+
+
+
+- Lecture 10 (Design-by-Contract)
+
+Design-by-Contract 
+ 
+
+Systems Thinking 
+• A system is any part of anything that you  want to think about as an indivisible unit • An interface is a description of the  “boundary” between a system and  everything else, that also describes how to  think about that system as a unit 
+• A subsystem (component) is a system  that is used inside, i.e., as a part of,  another system — a relative notion! 
+
+Example: Ice/Water Dispenser 
+• Select water, crushed ice, or cubed ice.  Place a glass against the pad and push. 
+
+People’s Roles wrt Systems 
+• A client is a person (or a role played by  some agent) viewing a system “from the outside” as an indivisible unit 
+• An implementer is a person (or a role  played by some agent) viewing a system  “from the inside” as an assembly of subsystems/components 
+
+Describing Behavior: Part 1 
+• One side of the coin: information hiding is a technique for describing system  behavior in which you intentionally leave  out “internal implementation details” of the  system 
+
+Describing Behavior: Part 2 
+• Other side of the coin (and a necessary  consequence of information hiding):  abstraction is a technique in which you  create a valid cover story to counteract the  effects of hiding some internal implementation details 
+	• Presumably the hidden information is relevant  to the system behavior, so even if you hide it  you still need to account for its presence! 
+
+Overview of Design-by-Contract 
+• Also known as programming-to-the interface 
+• Articulated clearly only in the 1980s • Design-by-contract has become the  standard policy governing “separation of  concerns” across modern software engineering 
+• This is how software components are really used… 
+
+Recall: Mathematical Models 
+• Each variable in the program has a type 
+	• Examples: int, double, … 
+• Each program type has a mathematical  type that models it: you should think of  any variable of that program type as  having a value from its mathematical  model’s mathematical space/domain 
+	• Examples (respectively): integer, real, … 
+
+Informal Models 
+• Models are not always formal mathematical models like integers, real  numbers, etc., but can be based on  informal concepts from other situations 
+• Example of an anthropomorphic description of behavior: 
+	• “This TV remembers the last channel you  watched.” 
+• More examples to come… 
+
+Structure of a Method Contract 
+• Each method has: 
+	• A precondition (requires clause) that  characterizes the responsibility of the program  that calls (uses) that method (client code) 
+	• A postcondition (ensures clause) that  characterizes the responsibility of the program  that implements that method (implementation code in the method body) 
+
+Meaning of a Method Contract 
+• If its precondition is true when a method is  called, then the method will terminate — return to the calling program — and the postcondition will be true when it does return 
+• If its precondition is not true when a  method is called, then the method may do  anything (including not terminate) 
+
+Responsibilities and Rewards 
+• Responsibility: Making sure the precondition is true when a method is called is the responsibility of the client 
+• Reward: The client may assume the postcondition is true when the method returns 
+• Responsibility: Making sure the  postcondition is true when a method  returns is the responsibility of the implementer 
+• Reward: The implementer may assume the precondition is true when the method is called 
+
+Recall: Static (Class) Methods 
+• A static method (class method) is one that:
+	• Has zero or more formal parameters of various  types — placeholders for the arguments that appear  in the call between (…) 
+	• Returns a value of a particular return type to the  calling program; or, returns nothing, denoted by a  return type of void 
+
+Example of a Contract 
+-----
+/** 
+* ... 
+* @param x number to take the square root of * @param epsilon allowed relative error 
+* @return the approximate square root of x * @requires 
+* x > 0 and epsilon > 0 
+* @ensures <pre> 
+* sqrt >= 0 and 
+* [sqrt is within relative error epsilon * of the actual square root of x] 
+* </pre> 
+*/ 
+private static double sqrt(double x, double epsilon)  
+
+-----
+• A Java comment that starts is called a Javadoc  comment; it goes before  the method header.
+• The Javadoc tag @param is needed for each formal parameter; you describe the parameter’s role in the  method.
+• The Javadoc tag @return  is needed if the method returns a value; you describe the returned value.
+• The Javadoc tag @requires introduces the precondition for the sqrt method.
+• The Javadoc tag @ensures introduces the postcondition for the sqrt method.
+• Javadoc comments may contain HTML-like tags; e.g., <pre> ... </pre> means spacing and line-breaks are retained in generated documentation
+
+Javadoc 
+• The standard documentation technique for  Java is called Javadoc 
+• You place special Javadoc comments  enclosed in /** … */ in your code, and  the javadoc tool generates nicely  formatted web-based documentation from them 
+
+APIs
+• The resulting documentation is known as  the API (application programming  interface) for the Java code to which the  Javadoc tags are attached 
+• The API for the OSU CSE components is  at: 
+	• http://web.cse.ohio-state.edu/software/common/doc/ 26 January 2021 OSU CSE 19
+• The word interface has two  related but distinct meanings: 
+	• a unit of Java code that contains Javadoc comments used to produce documentation
+• the resulting documentation
+ 
+Abbreviated Javadoc
+• For this course:
+	• Any actual code you ee in *.java files will have the full Javadoc comments, as above
+	• Some code you see in these slides will not have the Javadoc tags @param, @return, and formatting tags <pre>; plus, "keywords" in the Javadoc and mathematics will be bold-faced for easy reading
+		• This allows you to focus on the contract content: this requires and ensures clauses themselves
+
+Example Contract (Abbreviated)
+-----
+/** 
+* ... 
+* @requires   
+* x > 0 and epsilon > 0 
+* @ensures 
+* sqrt >= 0 and 
+* [sqrt is within relative error epsilon * of the actual square root of x] */ 
+private static double sqrt(double x, double epsilon)
+-----
+• @requires This is the precondition, indicating that the arguments passed in for the formal parameters x and epsilon both must be positive before a client may call sqrt.
+• @ensures This is the postcondition, indicating that the return value
+• The first part of the postcondition here is written in mathematical notation; it is not program code! The second part - inside [...] - is written in English
+
+Using a Method Contract 
+• A static method’s contract refers to its formal  parameters, and (only if it returns a value, not  void) to the name of the method (which stands  for the return value) 
+• To determine whether the precondition and  postcondition are true for a particular client call:
+	• The model values of the arguments are substituted  for the respective formal parameters 
+	• The model value of the result returned by the method  is substituted for the method name 
+
+
+A Partly Informal Contract 
+-----
+/** 
+* ... 
+* @requires 
+* x > 0 and epsilon > 0 
+* @ensures 
+* sqrt >= 0 and 
+* [sqrt is within relative error epsilon * of the actual square root of x] */ 
+private static double sqrt(double x, double epsilon) 
+-----
+
+A Formal Contract 
+-----
+/** 
+* ... 
+* @requires 
+* x > 0 and epsilon > 0 
+* @ensures 
+* sqrt >= 0 and 
+* |sqrt - x^(1/2)| / x^(1/2) <= epsilon */ 
+private static double sqrt(double x, double epsilon) 
+-----
+• We can, in this formal setting, easily substitute 4.0 for x, 0.01 for epsilon, and either 2.0 or 1.9996 for sqrt … and is the postcondition true in either case? Yes!
+
+A Method Body 
+-----
+private static double sqrt(double x, double epsilon) { 
+	assert x > 0.0 : "Violation of: x > 0"; 
+	assert epsilon > 0.0 : "Violation of: epsilon > 0"; 
+	// rest of body: compute the square root 
+} 
+-----
+• The assert statement in Java checks whether a condition (an assertion) is true; if it is not, it stops execution and reports the message after the colon.
+• But why are there assert statements in this method body to  check what the implementer is  supposed to assume?
+
+Checking a Precondition 
+• During software development, it is a  best practice to check assumptions with  assert when it is easy to do so 
+	• This checking can be turned on and off (on by  using the “-ea” argument to the JVM) 
+	• When turned off, assert is documentation • Preconditions generally are easy to check;  postconditions generally are not easy to  check 
+
+A Misconception 
+• A common misconception is that using  assert statements to check  
+preconditions contradicts design-by contract principles 
+• It does not, because the advice is not to  deliver software with assertion-checking  turned on, but rather to develop software  with assertion-checking turned on — to  help catch your mistakes, not the client’s! 
+
+Resources 
+• Wikipedia: Design by Contract 
+– http://en.wikipedia.org/wiki/Design_by_contract 26 January 2021 OSU CSE 45
+
+
+
+- Lecture 11 (Trees)
+
+
+Trees 
+
+A New Math Type: tree 
+• A ubiquitous concept in computing is that  of a tree 
+	• Often we are interested in a binary tree, a  special case of a tree in which each node has  at most two children 
+• An informal introduction (“node”?,  “children”?) follows, using pictures rather  than any new mathematical notation 
+
+Recursive Structure 
+• A tree is made up of: 
+	• A root node 
+	• A string of zero or more child nodes of the  root, each of which is the root of its own tree 
+• Since a tree may contain other trees, its  structure is recursive 
+• Note: the following explanation of trees is  adequate for present purposes but is not  technically complete; details later… 
+
+Resources 
+• Wikipedia: Tree structure 
+– http://en.wikipedia.org/wiki/Tree_structure 
+31 January 2023 OSU CSE 24
+
+
+
+- Lecture 12 (XML Documents)
+
+XML Documents 
+
+eXtensible Markup Language 
+• A textual document format used all over  the web is XML 
+	• Used to represent hierarchically organized  data for “ease of use” both by humans and  computers 
+	• Had its origins in SGML (Standard Generalized Markup Language) from the  1980s 
+	• Became a standard in the late 1990s
+
+Example XML Document/File 
+-----
+<?xml version="1.0" encoding="UTF-8"?> 
+<book printISBN="978-1-118-06331-6" webISBN="1-118063-31-7" pubDate="Dec 20 2011"> 
+	<author>Cay Horstmann</author> 
+	<title> 
+		Java for Everyone: Late Objects 
+	</title> 
+	... 
+</book>
+-----
+• An XML declaration is the first line of well formed XML file.
+• <author>Cay Horstmann> is an author element.
+• <author> is a start tag for an author element.
+• </author> is an end tag for that author element
+• The content for this author element is everything between its start and end tags.
+• If the author element had no content, then you might find this: <author></author>
+	• Or you might find a single self-closing tag like this: <author />
+• <title>Java for Everyone: Late objects</title> is a title element
+• The book element contains the title and author elements.
+• printISBN is the name of an attribute of the book element
+• 978-1-118-06331-6 is the value of the printISBN attribute.
+
+Recursive Structure 
+• An XML document (without the XML  declaration in the first line) is made up of:
+	• A top-level element 
+	• A string of zero or more child elements of the  top-level element, each of which is exactly like  the top-level element of an XML document 
+• Notice the similarity to a tree: the structure  of an XML document is also recursive 
+• Information it represents is hierarchical 
+
+Resources 
+• Big Java, Section 23.1 (but not the rest of  Chapter 23) 
+– https://library.ohio-state.edu/record=b9476806~S7 • Wikipedia: XML 
+– http://en.wikipedia.org/wiki/XML 
+5 May 2016 OSU CSE 18
+
+
+- Lecture 13 (XMLTree Model)
+
+XMLTree Model 
+
+XMLTree 
+• The XMLTree component family allows  you to create, and navigate through, a tree  whose structure mirrors that of an XML file 
+	• The file from which the tree is created may  come from your computer or from the web – You need not worry about parsing the file (recognizing tags, matching start-end tags,  identifying attributes, etc.), as this is done for  you by XMLTree 
+• The attribute name-value pairs of an element/tag are in the tree node of that element/tag.
+• The children of the top-level element/tag are the children of the root of the tree.
+• The first child node of the root is known as "child 0" because children are numbered from 0.
+• The second child node of the root is known as "child 1".
+• The third child node of the root is known as "child 2".
+• The content of an element/tag is in a child node of the node for that element/tag; the content node itself has no tag.
+
+
+… And So On! 
+• The same rules apply at all levels of the  XML file and of the XMLTree object that is created from it 
+
+Key Properties/Invariants 
+• Every node in the tree represents either a tag (e.g., <author>) or the text content (e.g., "Cay Horstman") of an element 
+• Every node in the tree has a label String that is either the tag name (e.g., "author")  or the text content itself (e.g., "Cay Horstman") 
+• Only tag nodes can have zero or more  attribute name-value pairs, each of which is a  String (e.g., "pubDate" → "Dec 20  2011") 
+
+Resources 
+• OSU CSE Components API: XMLTree – http://web.cse.ohio-state.edu/software/common/doc/ 
+13 September 2022 OSU CSE 26
+
+
+
+- Lecture 14 (XMLTree Methods)
+
+XMLTree Methods 
+
+Methods for XMLTree 
+• All the methods for XMLTree are instance  methods, i.e., you call them as follows - t.methodName(arguments) - where t is an initialized variable of type XMLTree 
+
+Methods for XMLTree 
+• All the methods for XMLTree are instance  methods, i.e., you call them as follows: t.methodName(arguments) where t is an initialized variable of type XMLTree 
+• t is called the receiver of the  call; for all instance methods, the  corresponding distinguished formal parameter implicitly has the name this.    
+
+Implementations of XMLTree 
+• There are two different classes that implement the XMLTree interface  contract, and you may use either one: XMLTree1 or XMLTree2 
+• This choice is made when you initialize a  variable of type XMLTree, where you must  use the name of one of these implementation classes as the name of the constructor 
+• The behavior of an XMLTree does not depend on which use the name of one of these implementation you choose; this is a implementation classes as the name of the constructor key benefit of design-by-contract!
+
+Interface and Implementing Classes 
+• XMLTree1 implements XMLTree
+• XMLTree2 implements XMLTree
+• The interface XMLTree has method signatures and contracts for methods.
+• The class XMLTree1 has method bodies, and so does XMLTree2
+• The method bodies in XMLTree1 implement the method contracts in XMLTree
+• The method bodies in XMLTree2 implement the method contracts in XMLTree
+
+Mathematical Model 
+• The value of an XMLTree variable is  modeled as a tree of nodes whose labels are explained in the previous set of slides 
+• Note that this model is described informally, though it could be formalized into mathematical notation
+
+Constructors 
+• There are two constructors for each  implementation class 
+• The name of the constructor is the name of the  implementation class 
+• Constructors differ only in their parameters 
+• For XMLTree, we will use only the constructor  that takes one String parameter, either:
+	• The name of an XML file on your computer
+	• The URL of an XML file or an XML source on the web 
+• A constructor call has the keyword new before the constructor name and is an  expression, e.g.: new XMLTree1("foo.xml") 
+• The value of this expression is determined  by the contract for the constructor 
+	• In this case, the contract says the value is an  XMLTree corresponding to the XML document named by the String parameter.
+
+label
+String label ( ) 
+• Returns the label of the root of this. 
+• Ensures: label = [the label of the root of  this (not including < > for tags)] 
+
+isTag 
+boolean isTag( ) 
+• Returns whether the label of the root of  this is a tag. 
+• Ensures: isTag = [the label of the root of  this is a tag] 
+
+hasAttribute 
+boolean hasAttribute(String  name) 
+• Returns whether the root tag of this has  an attribute called name. 
+• Requires: [label of root of this is a tag] 
+• Ensures: hasAttribute = [label of root of  this has an attribute called name] 
+
+attributeValue 
+String attributeValue(String name) 
+• Returns the value associated with the attribute of the root tag of this called name. 
+• Requires: [label of root of this is a tag and it has an attribute called name] 
+• Ensures: attributeValue = [value associated with  attribute called name of root tag of  this] 
+
+numberOfChildren 
+int numberOfChildren() 
+• Returns the number of subtrees of the root  of this. 
+• Requires: [label of root of this is a tag] 
+• Ensures: numberOfChildren = [the number of  subtrees of the root of this] 
+
+child 
+XMLTree child(int k) 
+• Returns the k-th subtree of the root of this. 
+• Requires: [label of root of this is a tag and 0 <= k < number of subtrees of the root of this] 
+• Ensures: child = [the k-th subtree of the root of  this] 
+
+Complex Expressions 
+• Continuing code from the previous  example, this expression has the same type and value as st.child(0): t.child(1).child(0) 
+• And this expression has what type and  what value? 
+	• t.child(1).child(0).label() 
+• The type is String, the return type of the label method; the value is "Java for Everyone: Late Objects".
+
+An Aside: Iterators and Iterables 
+• An iterator lets you easily “visit” all members  of a “collection” of things (without changing them while visiting them) 
+• A “collection” of things you can iterate on is  called iterable 
+• The collection classes of the Java library  and the OSU CSE components library have  methods to give you an iterator for the  corresponding collection and thus are iterable 
+
+Example Code With Iterable 
+• Suppose dictionary is some iterable collection of, say, Strings 
+• This code “does something” with each  String in the collection 
+-----
+for (String word : dictionary) { 
+	// do something with word 
+} 
+-----
+• This is called for-each loop 
+
+attributeNames 
+Iterable<String> attributeNames() 
+• Returns an Iterable<String> of the attribute names of the root of this. 
+• Requires: [label of root of this is a tag] 
+• Ensures: attributeNames = [an Iterable<String> of  the attribute names of the root of this] 
+
+Iterating Over Attribute Names 
+• To iterate over the attributes of the root of  an XMLTree there is no need to declare  an Iterable 
+• This code “does something” with each  attribute name (String) of the root of  XMLTree t: 
+-----
+for (String name : t.attributeNames()) { 
+	// do something with attribute name 
+} 
+-----
+
+display 
+void display() 
+• Displays this in a new window. 
+• Ensures: [this is displayed in a new window]
+
+toString 
+String toString() 
+• Returns an XML string representation of  this. 
+• Ensures: toString = [an XML string representation of this] 
+• Equivalent to the content of an XML file that, if identified in the constructor for XMLTree, would result in the XMLTree this.
+
+An Immutable Type 
+• Observation: no method changes the  value of an XMLTree variable! 
+	• Once an XMLTree variable is initialized by  assigning it a value (e.g., the result of a  constructor call), its value cannot be changed  except by assigning something else to it 
+• This kind of type is called immutable
+
+Resources 
+• OSU CSE Components API: XMLTree – http://web.cse.ohio-state.edu/software/common/doc/
+
+
+- Lecture 15 (RSS)
+
+
+RSS 
+
+Really Simple Syndication 
+• A textual format used on the web for “news  feeds” or “web feeds” is RSS 
+	• Uses XML to represent information that is  frequently updated (e.g., news, weather,  sports scores, blogs), generally in summary form with links to originals 
+	• Became a de facto standard in the early  2000s 
+	• Actually, two standards; we will use RSS 2.0, a.k.a. RSS 2.* 
+
+Relationship of RSS to XML 
+• An RSS 2.0 feed is well-formed XML 
+• An RSS 2.0 feed meets additional specifications beyond being XML: certain tags, certain required/optional attributes, certain required/optional elements, etc. 
+
+Example RSS Feed 
+-----
+<rss version="2.0"> 
+	<channel> 
+		<title>Yahoo! News</title> 
+		<link>http://news.yahoo.com</link> 
+		<description>The latest news and headlines from Yahoo! News. </description> 
+		<item> 
+			<title>Apple seeks to stop…</title> 
+			<link>http://news.yahoo.com/...</link> 
+			<description>Apple Inc will seek a...</description> 
+			<pubDate>Mon, 27 Aug 2012 14:40:49</pubDate> 
+			<source url="http://www.reuters.com">Reuters</source> 
+		</item> 
+			... 
+	</channel> 
+</rss> 
+-----
+• The top-level element is rss, and it has a required version attribute whose  value must be "2.0".    
+• There is exactly one required channel element inside the rss element
+• These three elements (title, link, description) are required, but may appear in any order.
+• There can be zero or more item elements within channel; each has at least a title or description element within it, but these may appear in any order.
+ 
+Summary of XMLTree Features 
+• Properties of the XMLTree from an RSS 2.0 feed:
+	• The root node is an rss node with a version attribute whose  value is "2.0" 
+	• There is one channel node as a child of the root 
+	• The channel node has certain required child nodes: one  title, one link, and one description, in no particular  order; it can also have zero or more item child nodes plus other  optional children 
+	• No particular order is required among the children of an item node, but for each item node at least one of its children must be  a title or description node 
+
+Resources 
+• Wikipedia: RSS 
+	• http://en.wikipedia.org/wiki/RSS 
+• Wikipedia: Web Feed 
+	• http://en.wikipedia.org/wiki/Web_feed • Wikipedia: Web Syndication 
+	• http://en.wikipedia.org/wiki/Web_syndication • RSS 2.0 Specification 
+	• http://www.rssboard.org/rss-specification 7 January 2019 OSU CSE 11
+
+
+- Lecture 16 (Clock Arithmetic)
+
+Clock Arithmetic 
+
+Mathematical Modulo (“mod”) 
+• The value of a mod b, or a modulo b,  where a and b are mathematical integers and b > 0, is computed by  doing clock arithmetic on a clock face  with b positions 
+	• If a > 0, the “hand” on the clock starts at 0 and moves |a| positions clockwise 
+	• If a < 0, it moves |a| counter-clockwise – Where it ends up is the value of a mod b 
+
+Example: 24-hr Clock 
+• Any integer mod 24 is a number between 0 and 23 inclusive
+• What is 67 mod 24? Twice around the clock is 48, and 19 more makes 67. Hence 19.
+• And (-67) mod 24? Hint: it is not 19, it is not -19, but rather 5.  
+
+Modulo ≠ Remainder (%) 
+• What is the remainder upon dividing 67  by 24? It is 19. 
+• What is the remainder upon dividing –67  by 24? It is –19. 
+	• At least most people would say it is, and  indeed this is how Java evaluates the expression: (-67) % 24 
+
+
+- Lecture 17 (NaturalNumber)
+
+NaturalNumber 
+
+NaturalNumber 
+• The NaturalNumber component family  allows you to manipulate natural numbers  (i.e., non-negative integers) 
+	• Unlike an int variable, a NaturalNumber variable has no upper bound on its value – On the other hand, you need to call methods to do arithmetic; there are no nice built-in  operators (e.g., +, –, *, ==, <, …) or literals  (e.g., 0, 1, 13, …) as with int variables 
+
+Interfaces and Classes 
+• NaturalNumber1L implements NaturalNumber
+• NaturalNumber2 implements NaturalNumber
+• NaturalNumber extends NaturalNumberKernel
+• NaturalNumberKernel extends Standard
+• Standard has contract for three methods: clear, newInstance, transferFrom
+• NaturalNumberKernel has method contracts for three methods: multiplyBy10, divideBy10, isZero
+• NaturalNumber has contracts for 14 other methods, e.g., add, subtract, etc.
+
+The Standard Interface 
+• The interface Standard has methods that  are part of most (nearly all) OSU CSE  component families 
+	• Separating the standard methods into their  own interface means that these highly reused  methods are described in exactly one place 
+• This design goal in software engineering is usually called single point of control over change
+• The interface Standard has methods that  point of control over  
+
+The Kernel Interface 
+• The interface NaturalNumberKernel has a minimal set of methods that are  primitive in the NaturalNumber component family 
+	• Separating these kernel (primary) methods  into their own interface identifies them as  special in this regard 
+• The choice of kernel methods is a key decision by the designer of a component family. 
+
+The Enhanced Interface 
+• The interface NaturalNumber has all other methods that are convenient to have in the NaturalNumber component family 
+	• These secondary methods are often more  “powerful” than the kernel methods and are  introduced to make the component family readily usable in typical client code 
+
+Mathematical Model 
+• The value of a NaturalNumber variable  is modeled as a non-negative integer 
+• Formally: 
+	NATURAL is integer 
+		exemplar n 
+		constraint n >= 0 
+	type NaturalNumber is modeled by NATURAL 
+• First, we define the mathematical model we intend to use, including any is modeled as a non-negative integer constraints that limit the values it might have.
+• Second, we state that a NaturalNumber variable has that mathematical model.
+
+Constructors 
+• There are four constructors for each  implementation class 
+• As always: 
+	• The name of the constructor is the name of  the implementation class 
+	• Constructors differ only in their parameters 
+	• Each has its own contract (which is in the  kernel interface NaturalNumberKernel) 
+
+No-argument Constructor 
+• A constructor with no parameters is called  a no-argument constructor 
+• Ensures: this = 0 
+
+Copy Constructor 
+• There is a constructor with one parameter  of the same type (NaturalNumber n),  and it returns a copy of the parameter  value so it is called a copy constructor 
+• Ensures: this = n 
+
+Constructor from int 
+• There is a constructor with one parameter  int i 
+• Requires: i >= 0 
+• Ensures: this = i 
+
+Constructor from String 
+• There is a constructor with one parameter  String s 
+• Requires: there exists n: NATURAL (s = TO_STRING(n)) 
+• Ensures: s = TO_STRING(this) 
+• In other words, s must look like  
+• There is a constructor with one parameter the result of converting some  NaturalNumber value to a  String and the NaturalNumber value resulting from the constructor is what would have  given you that String.
+
+Methods for NaturalNumber 
+• All the methods for NaturalNumber are  instance methods, i.e., you call them as  follows - n.methodName(arguments) - where n is an initialized variable of type NaturalNumber 
+• Recall: n is called the receiver; for all instance methods, the corresponding distinguished formal parameter implicitly has the name this.
+
+Order of Presentation 
+• The methods are introduced here starting  with those you might expect to see as a  client, and then proceeding to ones that  might seem more surprising 
+
+add 
+void add(NaturalNumber n) 
+• Adds n to this. 
+• Updates: this 
+• Ensures: this = #this + n 
+• The parameter mode called  updates in a contract means the  variable’s value might be  changed by a call to the method.
+• If this is an updates-mode parameter in any method, then  the type in question is mutable.
+• In an ensures clause, a # in front of a variable whose value might  be changed is pronounced “old”;  #this denotes the old, or  incoming, value of this.
+
+subtract 
+void subtract(NaturalNumber n) 
+• Subtracts n from this. 
+• Updates: this 
+• Requires: this >= n 
+• Ensures: this = #this - n 
+• Important! It could have been written as: #this = this + n
+	• Or even as: this + n = #this
+
+multiply 
+void multiply(NaturalNumber n) 
+• Multiplies this by n. 
+• Updates: this 
+• Ensures: this = #this * n 
+
+divide 
+NaturalNumber divide(NaturalNumber n) 
+• Divides this by n, returning the remainder. 
+• Updates: this 
+• Requires: n > 0  
+• Ensures: #this = n * this + divide and 0 <= divide < n 
+
+power 
+void power(int p) 
+• Raises this to the power p. 
+• Updates: this 
+• Requires: p >= 0 
+• Ensures: this = #this ^ (p) 
+• Note: 0 ^ (0) = 1 by definition of the ^ operator.
+
+root 
+void root(int r) 
+• Updates this to the r-th root of its incoming  value. 
+• Updates: this 
+• Requires: r >= 2  
+• Ensures: this ^ (r) <= #this < (this + 1) ^ (r)  7
+
+copyFrom 
+void copyFrom(NaturalNumber n) 
+• Copies n to this. 
+• Replaces: this 
+• Ensures: this = n 
+• The parameter mode called  replaces in a contract means the  variable’s value might be  changed by a call to the method,  but the new value is independent  of the old value.
+• If this is a replaces-mode  parameter in any method, then  the type in question is mutable.
+
+compareTo 
+int compareTo(NaturalNumber n) 
+• Compares n to this, returning a negative  number if this < n, 0 if this = n, and a  positive number if this > n 
+• Ensures: compareTo = [a negative number,  zero, or a positive integer as this  is less than, equal to, or greater  than n] 
+
+multiplyBy10 
+void multiplyBy10(int k) 
+• Multiplies this by 10 and adds k. • Updates: this 
+• Requires: 0 <= k < 10 
+• Ensures: this = 10 * #this + k 
+• multiplyBy10 is a kernel method.
+
+divideBy10 
+int divideBy10() 
+• Divides this by 10 and returns the  remainder. 
+• Updates: this 
+• Ensures: #this = 10 * this + divideBy10 and 0 <= divideBy10 < 10 
+• divideBy10 is a kernel method.
+
+isZero 
+boolean isZero() 
+• Reports whether this is zero. 
+• Ensures: isZero = (this = 0) 
+• isZero is a kernel method
+
+clear 
+void clear() 
+• Resets this to an initial value. 
+• Clears: this 
+• Ensures: this = 0 
+• clear is a standard method
+• The parameter mode called clears in a contract means the variable's value is reset to an initial value by a call to the method.
+• If this is a clears-mode parameter in any method, then the type in question is mutable.
+• The ensures clause is redundant in this case because this is a clears-mode parameter.
+
+newInstance
+NaturalNumber newInstance()
+• Returns a new object with the same implementation as this, having an initial value.
+• Ensures: newInstance = 0
+• newInstance is a standard method.
+• This is similar to a constructor; the difference is that you don't need to know the name of any implementation class to call this method.
+
+transferFrom
+void transferFrom(NaturalNumber n)
+• Sets this to the incoming value of n, and resets n to an initial value; n must be of the same implementation as this.
+• Replaces: this
+• Clears: n
+• Ensures: this = #n
+• transferFrom is a standard method
+• transferFrom is similar to copyFrom, but it is always more efficient, so it should be used if you don't really need a duplicate.
+
+Whoa! It Clears n?
+• transferFrom changes the value of its argument
+
+toString
+String toString()
+• Returns the string representation of this.
+• Ensures: toString = [the String representation of this]
+
+
+
+- Lecture 18 (References)
+
+References 
+
+Primitive vs. Reference Types 
+• Java types are divided into two different  categories: 
+	• The built-in types are called primitive types • Includes boolean, char, int, double 
+	• All other types are called reference types (or  class types) 
+• Includes String, XMLTree, SimpleReader,  SimpleWriter, NaturalNumber, ... 
+• There is no limit on the number of other user-defined types that can be developed.
+
+Categories of Types
+• Primitive Types
+	• boolean 
+	• char 
+	• int 
+	• double 
+	• (plus 4  others) 
+• Reference Types
+	• String 
+	• XMLTree
+	• SimpleReader 
+	• SimpleWriter 
+	• NaturalNumber
+
+Primitive vs. Reference Variables 
+• A primitive variable is a variable of a primitive type 
+	• This term is used sparingly in practice, and is introduced here for parsimony to distinguish a  variable of a primitive type from… 
+• A reference variable is a variable of a reference  type
+	• A reference variable is fundamentally different from a primitive variable in ways that can dramatically impact how you reason about program behavior; beware! 
+
+Reference and Object Values 
+• A reference variable like s may be  considered to have either of two values: 
+	• The reference value of s in these pictures is  the memory address at which the object is stored 
+	• The object value of s in these pictures is the  mathematical model value of the object the  reference s points to, in this case "Go" 
+	• Think of the reference value as simply an “id” or “serial number” of some place in memory.
+
+Notation 
+• We never care about writing down the  reference value of a reference variable as a particular numerical value (though we  draw a picture of it: an arrow out of a  triangle)  
+• In a tracing table, however, we might want  to remind ourselves there is a reference  involved, so we might record the value of  variable s using a right arrow instead of an  equals sign, e.g., s ➞ "Go" 
+	• This means that s is a reference variable  whose object value is "Go" 
+	• Or: s refers to an object with value "Go" – Why would we do this?
+
+The Assignment Operator 
+• The assignment operator = copies the  value of the expression on the right-hand  side into the variable on the left-hand side 
+• For primitive types, “the value of” can  mean only one thing 
+• For reference types, it could mean “the  reference value of” or “the object value of” – Which is it? 
+
+Immutable vs. Mutable Types 
+• Java reference types are further divided  into two different categories: 
+	• Types for which no method might change the  value of the receiver, or any other argument of  that type, are called immutable types 
+	• Types for which at least one method might  change the value of the receiver, or some  other argument of that type, are called  mutable types 
+
+Immutable Types
+• String
+• XMLTree
+
+Mutable Types
+• SimpleReader
+• SimpleWriter
+• NaturalNumber
+ 
+Restated Claim 
+• You may reason about immutable types/variables as if they were primitive 
+• If and only if there are aliased references, you may not reason about mutable types/variables as if they were primitive – ... because this reasoning short-cut is  unsound, i.e., it may predict wrong results  compared to executing the code 
+
+Why Have Mutable Types? 
+• Couldn’t designers of new types just  always make them immutable, to simplify  reasoning? 
+	• Yes, but there would be serious efficiency  penalties in many cases, so best practices  dictate that it is more practical to allow  mutable types and be especially careful to  limit aliasing of references 
+
+Parameter Passing for References 
+• Just as the assignment operator copies  reference values, parameter passing to  method calls copies reference values 
+	• The reference values of the arguments are  copied into the formal parameters to initialize  them at the time of the call 
+	• Upon return, nothing is copied back except  the returned value of the method (if any), and  here too the reference value is copied back 
+
+Equality Checking for References 
+• Just as the assignment operator = copies  reference values, and parameter passing  to method calls copies reference values,  the equality operator == compares  reference values 
+• Since comparing object values is often what you want instead, the equals method compares object values
+	• At least, best practices say it is supposed to
+	• Beware: though the equals method does what it is supposed to for all types in the Java libraries (and certainly for all types in the OSU CSE components), in some cases it, too, simply compares reference values!
+
+Resources
+• Wikipedia: Pointer (computer programming)
+	• http://en.wikipedia.org/wiki/Pointer_(computer_programming)
+
+
+- Lecture 19 (Arrays and References)
+
+Arrays and References 
+  
+• Arrays group similar type variables, accessed via indices (e.g., a[0], a[1]).
+• Array length is stored in a.length.
+• Arrays are reference types; 'a' refers to the entire array.
+• Assignment, parameter passing, and return values treat arrays as references.
+• Comparison using == or equals checks references, not content.
+• For content comparison, use java.util.Arrays.equals or java.util.Arrays.deepEquals.
+• In serious software, prefer java.util.List with ArrayList over arrays.
+
+Resources 
+• Java Tutorials 
+– http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html • Java for Everyone, Section 6.1 
+– http://proquest.safaribooksonline.com.proxy.lib.ohio-state.edu/book/- /9781118063316/chapter-6-arrays-and-array-lists/250 
+• Effective Java, Item 25 
+– http://proquest.safaribooksonline.com.proxy.lib.ohiostate.edu/book/programming/java/9780137150021/chapter-5- generics/ch05 
+
+
+- Lecture 20 (Contracts)
+
+Contracts 
+
+• Contracts in OSU CSE components APIs have parameter modes and two stipulations:
+	• Parameter names in requires and ensures clauses represent object values, not reference values.
+	• Reference-type arguments must be non-null.
+
+• Parameter Modes:
+	• Restores Mode: Post method call, parameter regains its initial value.
+	• Clears Mode: Parameter resets to an initial type value post method call.
+	• Replaces Mode: Parameter may change post method call, independent of its incoming value.
+	• Updates Mode: Parameter may change post method call, dependent on its incoming value.
+
+• Examples like transferFrom, copyFrom, and add methods elucidate parameter modes.
+
+• Null References:
+	• Avoid using null references to prevent NullPointerExceptions.
+	• OSU CSE contracts necessitate non-null reference arguments.
+
+
+
+- Lecture 21 (Repeated Arguements)
+
+Repeated Arguments 
+
+• Aliasing:
+	• Aliasing, particularly for mutable types, can cause issues.
+	• Sources include assignment of one reference variable to another and parameter passing.
+
+• Parameter Passing Aliasing:
+	• Illustrated through foo(NaturalNumber x, NaturalNumber y) method; when called, aliasing occurs between variables a and b with parameters x and y.
+
+• Harmless vs Harmful Aliasing:
+	• Harmless aliasing occurs when method body only accesses parameters, not the variables used in client code.
+	• Harmful aliasing occurs when method's execution gets affected, illustrated with foo(a, a) call, leading to unexpected values.
+
+• Issues with Repeated Arguments:
+	• Repeated arguments like foo(a, a) can lead to impossible outcomes as per the method's contract, a problem not only in Java but any language with mutable types.
+
+• Receiver as an Argument:
+ • In instance method calls, the receiver's reference value is copied to this, making n.add(n) a case of repeated argument, leading to unexpected behavior.
+
+• Best Practice:
+ • Avoid passing a variable of mutable reference type as an argument twice or more to a single method call to prevent unintended aliasing and incorrect method behavior.
+
+
+- Lecture 22 (Hints on Interval Halving)
+
+Hints on Interval Halving 
+  
+A strategy called interval halving to guess a secret non-negative real number "s" or n^(1/r) through a guessing game. The strategy involves narrowing down the range of possible values by repeatedly guessing the floor of the midpoint of a defined interval, based on whether the secret number is less than the guess, and adjusting the interval accordingly. This technique, also known as bisection or binary search, effectively halves the interval with each iteration, leading to the correct answer when the interval contains only one integer. Through examples, the document demonstrates how interval halving can determine the integer part of the square root of a given number.
+
+
+- Lecture 23 (Recursion: Thinking About It)
+
+Recursion: Thinking About It 
+
+Recursion 
+• Recursion, a fundamental concept in computer science and mathematics, refers to a process where a function calls itself with modified arguments, or a structure is defined in terms of smaller copies of itself. Here's a detailed breakdown:
+
+Basic Principle:
+• A recursive process solves a problem by breaking it down into smaller sub-problems. These sub-problems are similar in nature to the original problem but simpler or smaller in size.
+The solutions to the sub-problems are then combined to solve the original problem.
+
+Base Case and Recursive Case:
+	• Base Case: The condition under which the recursive process stops. It's the simplest case, solved directly without any further recursion.
+	• Recursive Case: The part of the process where the function calls itself, aiming to solve a smaller or simpler version of the original problem.
+
+Execution Stack:
+	• Each recursive call creates a new frame on the execution stack, holding the function's local variables and the return address.
+The stack unwinds as the base case is reached and each recursive call returns, eventually solving the original problem.
+
+Benefits and Drawbacks
+	• Benefits: Recursion can simplify code, making it easier to read and write. It's especially useful for solving problems with a recursive nature.
+	• Drawbacks: It can lead to high memory usage due to the stack frames, and may have a higher time complexity compared to iterative solutions.
+
+Alternatives
+	• Iterative solutions are often used as alternatives to recursion, as they can be more efficient in terms of time and space complexity.
+
+Memoization and Tail Recursion
+	• Memoization: Storing the results of expensive function calls and reusing them when the same inputs occur again.
+	• Tail Recursion: A special case of recursion where the recursive call is the last operation in the function, allowing the compiler to optimize the recursion and reduce the stack space used.
+
+Mathematical Foundations
+	• Recursion has a mathematical foundation in inductive definitions and proof techniques, illustrating how properties can be proven for an infinite set of objects by proving them for a simpler or smaller subset.
+
+Understanding recursion requires a good grasp of the control flow in programs and a willingness to think in a self-referential manner. It's a powerful concept that, when applied correctly, can result in elegant solutions to certain types of problems.
+
+
+- Lecture 24 (Concepts of Object-Oriented Programming)
+
+Concepts of Object-Oriented  Programming 
+  
+• Implements Relation:
+	• Class to interface relation where class contains code for behavior specified in interface, as seen in: class C implements I { // bodies for methods specified in I }.
+
+Extends Relation:
+
+• Can be between two interfaces or two classes. If B extends A, B inherits all methods of A, adding or overriding methods as needed.
+
+Interface Extension:
+
+	•Allows separation of contracts, making I2 a sub interface of I1 when: interface I2 extends I1 { // contracts for methods added in I2 }.
+
+Class Extension:
+
+• Serves to add new method bodies or override existing ones in the extended class. Illustrated by class C2 extends C1 { // code for methods added or // overridden in C2 }.
+
+Polymorphism:
+
+• Method body used for a call is based on object type of receiver, allowing methods to have many forms based on context of the call.
+"@Override" Annotation:
+
+• Utilized when overriding a method from an extended class or implementing a method from an interface, guiding compiler and developers.
+Best Practice:
+
+• Prefer declaring variables using an interface type, and use @Override annotation when overriding methods to ensure correct behavior and enhance code readability.
+
+
+- Lecture 25 (Static Methods vs. Instance Methods)
+
+Static vs Instance Methods
+
+Common Features:
+1.) Both static and instance methods can have formal parameters of any type.
+2.) They may return any type or nothing (void).
+3.) They can be designated as public or private.
+4.) They share the same parameter-passing mechanism called call-by-copying or call-by-value.
+
+
+Static Methods:
+1.) Identified by the keyword static.
+2.) They are called without a receiver.
+3.) Calls from within the class may look like power(m, k); whereas from outside the class it would be NNExtraOps.power(m, k);.
+
+
+Instance Methods:
+1.) They are declared without the keyword static.
+2.) Called with a receiver such as m.power(k);.
+3.) Have an implicit formal parameter called this.
+
+
+Implications:
+1.) Instance methods support polymorphism, enabling method behavior to vary based on the object type of the receiver.
+2.) As of Java 8, static methods in interfaces require an implementation, blurring the clean separation between contracts and implementation, thus favoring instance methods for maintaining this separation.
+
+This structured format encapsulates the key distinctions between static and instance methods, their commonalities, and the implications of using each in Java, particularly concerning interface contracts and polymorphism.
+
+
+- Lecture 26 (Recursion: Why It Works)
+
+Recursion: Why It Works 
+
+Understanding Recursion:
+- It suggests pretending there's a "FreeLunch" class with a method that has the same contract as the code you're writing, which helps in thinking about recursion to develop solutions for smaller problems.
+
+Confidence-building Approach:
+- The approach involves understanding why recursive methods work by examining how they handle progressively larger problems, starting with the smallest problem and moving to next-smallest problems, illustrated through examples like reversing a string and incrementing a natural number.
+
+Tracing Code:
+- Manual tracing of code for different problem sizes is emphasized to build confidence that the recursive logic works as intended.
+
+Formal Proof Techniques:
+- Mathematical Induction and Proof by Contradiction are introduced as formal proof techniques to validate recursive code.
+
+Testing and Debugging:
+- The lecture mentions that the confidence-building method also suggests some test cases for debugging and testing, which is crucial for validating the functionality of recursive code.
+
+Conclusion:
+- The purpose of the confidence-building method is to provide assurance that the recursive code works correctly, and it suggests that manually tracing the code, even if mentally, is an essential step in writing recursive code.
+
+
+The lecture delves into the reasoning behind recursion, demonstrating how to build confidence in recursive methods' correctness through a step-by-step approach. By tracing code for various problem sizes, it shows how recursion solves smaller sub-problems to tackle larger ones. The lecture also introduces formal proof techniques like Mathematical Induction and Proof by Contradiction for validating recursive code. Through examples, it illustrates how to trace recursive code manually for different problem sizes, emphasizing the importance of understanding recursion at a fundamental level to effectively implement and debug recursive methods.
+
+
+- Lecture 27 (Recursion on Trees)
+
+Recursion on Trees 
+
+Definition of Trees:
+	• A tree consists of a root node with zero or more child nodes, each child is the root of its own subtree.
+
+Recursive Structure of Trees:
+	• Trees have a recursive structure as each subtree is a tree itself.
+	• Example: A family tree where each node represents a family member, and the subtrees represent the descendants of each member.
+
+Recursive Algorithms and Trees:
+	• Trees' recursive nature facilitates implementing methods that operate on trees using recursion.
+	• Example: Calculating the size of a tree (number of nodes) using a recursive function.
+
+XMLTree:
+	• XMLTree is utilized as a collection of nodes, useful in projects like XML/RSS.
+	• Example: Utilizing recursive view to navigate through an XMLTree and extract specific information.
+
+Expression Trees:
+	• Expression trees represent expressions in a tree structure, aiding in the evaluation of expressions.
+	• Example: Representing the expression ((1 + 3) * 5) - (4 / 2) as a tree and evaluating it using a structured traversal.
+
+Evaluation of Expression Trees:
+	• Evaluating expression trees involves evaluating each subtree before applying the operator at the root node.
+	• Example: Traversing the expression tree to evaluate the expression, following the order of operations.
+
+XML Encoding of Expressions:
+	• Expressions can be encoded in XML with tags distinguishing operators from operands.
+	• Example: Encoding an arithmetic expression in XML and evaluating it using an XMLTree.
+
+
+- Lecture 28 (Testing)
+
+Testing 
+
+The Importance of Testing
+	• Software testing is a crucial engineering activity, especially in large or critical systems like avionics or automotive software, where testing costs can overshadow other developmental costs. Testing verifies that software components function as intended, adhering to specified behaviors outlined in method contracts.
+
+Software Scale
+	• Examples of software scale include the Boeing 787 Dreamliner's avionics with about 6.5 million lines of code, Microsoft Windows 10 with around 50 million lines, and modern cars potentially having around 100 million lines of code.
+
+Testing Types
+	• Unit Testing:
+		• Targets individual units or components.
+		• Example: Verifying a single method like aFactor(int n) where the contract requires n > 0 and ensures aFactor > 0 and n mod aFactor = 0. Test cases can include inputs like n = 1, 2, 4, 12 to check various scenarios including boundary and challenging cases.
+	• Integration Testing:
+		• Ensures multiple components work together.
+	• System Testing:
+		• Validates the entire system functionality.
+
+Testing Goals
+	• The primary aim is to identify defects, ensuring the actual behavior of a method aligns with the allowed behaviors defined in its contract. For instance, a method decrement(NaturalNumber n) with a contract that requires n > 0 and ensures n = #n – 1. Test cases might include #n = 1, 2, 10, 42 to validate the method against boundary, routine, and challenging cases.
+
+Psychological Aspects
+	• Testing is a destructive activity aiming to identify defects, requiring a shift from the creative mindset employed in coding to a more critical, fault-finding mindset during testing.
+
+Test Plans
+	• Designing a robust test plan involves:
+		• Testing boundary cases: Extreme or limit values based on the contract.
+		• Testing routine cases: Common, expected scenarios.
+		• Testing challenging cases: Scenarios that could be error-prone or difficult to handle.
+
+
+- Lecture 29 (JUnit)
+
+JUnit 
+
+Primitive Testing
+	• Description: Manual input/output testing via console, checking results by inspection.
+	• Pros/Cons: Simple yet tedious and error-prone due to lack of automation.
+
+More Automated Testing
+	• Description: Inputs and expected results stored in parallel arrays, automatic comparison via a loop.
+	• Example: Code snippet showcasing a loop through test cases, comparing actual with expected results.
+
+Serious Testing: JUnit
+	• Description: JUnit as an industry-standard framework for Java code testing.
+	• Examples: JUnit test case examples, annotations, and assertions.
+
+Vocabulary Review
+	• Test case: Single unit of code testing, typically a method.
+	• Test fixture: Collection of test cases for a class.
+
+New Vocabulary
+	• JUnit Assertion: Claim that a boolean-valued expression is true; comparison between expected and actual results.
+
+Execution Model
+	• Description: JUnit creates separate instances per test case, ensuring test cases independence.
+
+JUnit Assertions
+	• Description: Useful methods for checking actual results against allowed results.
+
+Timed Tests
+	• Description: Parameterizing tests to prevent infinite loops, specifying timeout.
+
+Best Practices
+	• Description: Keeping JUnit test fixtures organized, naming conventions.
+
+Recommended Test Case Style
+	• Description: Structuring test cases with setup, method call, and assertions.
+	• Examples: Code snippets showing structured test cases.
+
+Resources
+	• Recommended Reading: JUnit in Action, Second Edition by Petar Tahchiev et al.
+
+
+- Lecture 30 (Queue)
+
+Queue 
+
+• Queue is a First-In-First-Out (FIFO) data structure.
+
+The methods associated with Queue.
+• enqueue(T x): Adds x at the back.
+• dequeue(): Removes and returns the entry at the front.
+• length(): Reports the length.
+• front(): Returns the entry at the front.
+• replaceFront(T x): Replaces the front with x, and returns the old front.
+• append(Queue<T> q): Concatenates q to the end of this.
+• flip(): Reverses this.
+• sort(Comparator<T> order): Sorts this according to the ordering provided by the compare method from order.
+• rotate(): Rotates this
+
+- Lecture 31 (Mathematical String Notation)
+
+Mathematical String Notation 
+
+• String Model:
+	• Mathematical strings are visualized as a series of zero or more entries of any mathematical type (T).
+	• Distinguished from Java's String type, where a mathematical string of character type models Java's String type.
+
+• Notation:
+	• Specific strings are denoted within angle brackets, with entries separated by commas, e.g., <1, 2, 3, 2>.
+	• The empty string is represented as <> or empty_string.
+
+• String Operations:
+	• Concatenation: Combining strings s and t is represented as s * t, e.g., <1, 2> * <3, 2> = <1, 2, 3, 2>.
+	• Length: The number of entries in a string s is denoted by |s|, e.g., |<'G', 'o'>| = 2.
+
+•Substring, Prefix, Suffix:
+ • A substring is defined when entries of string s appear consecutively in string t.
+	• Prefix and suffix are defined similarly at the beginning and end of string t, respectively.
+	• Substring notation: s[i, j), where i is inclusive and j is exclusive, e.g., with s = "GoBucks", s[0, |s|) = "GoBucks".
+
+• Other Operations:
+	• Reverse: The reverse of string s, i.e., string with the same entries as s but in the opposite order, is denoted by rev(s), e.g., rev(<1, 2, 3, 2>) = <2, 3, 2, 1>.
+	• Permutations: Determining if strings s1 and s2 are permutations (reorderings) of each other is denoted by perms(s1, s2), e.g., perms(<1, 2, 3>, <3, 1, 2>).
+	• Occurrence Count: The count of an entry x in a string s is denoted by count(s, x), e.g., count(<2, 2, 2, 1>, 2) = 3. 
+
+
+- Lecture 32 (Mathematical Set Notation)
+
+Mathematical Set Notation 
+
+Set
+• A Set is a data structure that stores unique elements in no particular order. The uniqueness of elements is a key feature that differentiates it from other data structures like lists or arrays.
+
+• Add: Adds an element to the set.
+• Remove: Removes an element from the set.
+• Contains: Checks if an element is in the set.
+• Size: Returns the number of elements in the set.
+• Union: Returns a new set with elements from both sets.
+• Intersection: Returns a new set with elements common to both sets.
+• Difference: Returns a new set with elements in one set but not the other.
+• Subset: Checks if one set is a subset of another.
+
+- Lecture 33 (Set)
+
+Set 
+
+• add(T x)
+-----
+Set<Integer> si = new Set1L<>();
+si.add(70);  // si = {70}
+-----
+
+• remove(T x)
+-----
+si.remove(70);  // si = {}
+-----
+
+• removeAny()
+-----
+Integer k = si.removeAny();  // removes an arbitrary element from si
+-----
+
+• contains(T x)
+-----
+boolean b = si.contains(70);  // b = true if 70 is in si
+-----
+
+• size()
+-----
+int n = si.size();  // n = number of elements in si
+-----
+
+• add(Set<T>s)
+-----
+Set<Integer> s1 = new Set1L<>();
+Set<Integer> s2 = new Set1L<>();
+s1.add(s2);
+-----
+
+• remove(Set<T>s)
+-----
+Set<Integer> s3 = s1.remove(s2);
+-----
+
+• isSubset(Set<T>s)
+-----
+boolean b = s1.isSubset(s2);
+-----
+
+• Iterating through a set
+-----
+for (Integer x : si) {
+    // do something with x
+}
+-----
+
+
+- Lecture 34 (Genome/String Reassembly)
+
+Genome Reassembly From Fragments 
+
+• The text explores the concept of a genome and the process of genome sequencing in detail. It begins by defining a genome as the encoding of hereditary information in an organism's DNA, represented as a string of characters (A, C, G, or T) which denote the four nucleotides in DNA. It then delves into an analogy comparing the human genome to a book, where the book represents the genome, each of the 23 chapters represents a chromosome, and the letters (A,C,G,T) represent the genetic information. The total count of letters amounts to over 3.2 billion.
+
+• The Human Genome Project, aimed at mapping the entire human DNA sequence, is introduced. Due to the genome's length, sequencing is performed piece-by-piece. The sequencing process consists of three primary steps:
+
+• Fragmentation: DNA strands are cut into smaller fragments using enzymes, creating a 'soup' of fragments each of much smaller length, around 1000 bases long.
+
+• Sequencing: Machines then physically sequence each of these fragments to determine their mathematical models, i.e., the order of nucleotides.
+
+• Reassembly: Computer algorithms are used to reassemble the original long string model from the models of its fragments by combining fragments based on their overlaps.
+
+• A project is mentioned that simplifies this process to reassemble a short text, like the Gettysburg Address, which has been fragmented randomly.
+
+• The text continues to explain a method called "Greedy Reassembly" for combining fragments based on overlaps. It details a step-by-step process where two fragments with the most overlap are selected and combined into a longer fragment. This process continues until there is only one fragment left or no two fragments overlap. The resulting string might not be identical to the original long string that was fragmented initially, but it’s a likely approximation.
+
+
+- Lecture 35 (Sequence)
+
+Sequence 
+
+• The Sequence is a data structure that allows manipulation of a string of entries of any type, much like an arraylist. Here's a breakdown of its associated methods:
+	• add(int pos, T x): Inserts x at position pos.
+	• remove(int pos): Removes and returns entry at position pos.
+	• length(): Returns the length of the sequence.
+	• entry(int pos): Returns the entry at position pos.
+	• replaceEntry(int pos, T x): Replaces the entry at position pos with x, and returns the old entry.
+	• append(Sequence<T> s): Appends s to the end of the sequence.
+	• flip(): Reverses the sequence.
+	• insert(int pos, Sequence<T> s): Inserts s at position pos.
+	• extract(int pos1, int pos2, Sequence<T> s): Removes a substring from pos1 to pos2-1 and places it in s.
+
+
+- Lecture 37 (Queue - Comparators)
+
+Queue 
+
+• Queue is a First-In-First-Out (FIFO) data structure.
+
+The methods associated with Queue.
+• enqueue(T x): Adds x at the back.
+• dequeue(): Removes and returns the entry at the front.
+• length(): Reports the length.
+• front(): Returns the entry at the front.
+• replaceFront(T x): Replaces the front with x, and returns the old front.
+• append(Queue<T> q): Concatenates q to the end of this.
+• flip(): Reverses this.
+• sort(Comparator<T> order): Sorts this according to the ordering provided by the compare method from order.
+• rotate(): Rotates this
+
+
+- Lecture 38 (Stack)
+
+Stack 
+
+
+• A Stack is a data structure that stores elements in a LIFO (Last In First Out) manner, meaning the last element added is the first to be removed. Here's a breakdown of the mentioned methods:
+
+	• push(T x): Adds element x to the top of the stack.
+	• pop(): Removes and returns the top element; requires stack to be non-empty.
+	• top(): Returns the top element without removing it; requires stack to be non-empty.
+	• replaceTop(T x): Replaces the top element with x and returns the old top; requires stack to be non-empty.
+	• flip(): Reverses the order of elements in the stack.
+	• length(): Returns the number of elements in the stack.
+	• clear, newInstance, transferFrom: Methods under Standard for initialization and transfer operations.
+
+
+- Lecture 39 (Recursion: How It Works)
+
+Recursion: How It Works 
+
+• The text explains recursion through a detailed trace of a method reversedString which reverses a given string. It emphasizes the role of a "tracing table" in understanding the execution flow of recursive calls. Every method call creates a new tracing table, which is a snapshot of the method's state at that point. This table holds values of variables, and tracks the execution flow. When a recursive call is made, the current tracing table is "pushed" onto a stack, and a new table is created for the recursive call. This process repeats until the base case is reached, after which the method calls start returning, "popping" the tracing tables off the stack and resuming execution from where they left off, eventually leading to the final output. This method of tracing aids in understanding the recursion flow, but the text advises against relying solely on this method for developing recursive solutions.
+
+
+- Lecture 40 (Map)
+
+Map 
+
+• A Map in programming is a data structure used for storing key-value pairs. Each key is unique and maps to a specific value. Here are some methods associated with Map as per the provided text:
+
+• add(K key, V value): Adds a key-value pair to the Map.
+• remove(K key): Removes the pair with the specified key.
+• value(K key): Returns the value associated with the specified key.
+• hasKey(K key): Checks if a specified key is in the Map.
+• size(): Returns the number of key-value pairs in the Map.
+• replaceValue(K key, V value): Replaces the value of a specified key.
+• combineWith(Map<K,V> m): Combines another Map with the current Map, provided their domains don't intersect.
+
+
+- Lecture 41 (Graphical User Interfaces)
+
+Graphical User Interfaces 
+  
+Programs With GUIs 
+• The document delves into user interaction within Java GUI applications. It discusses the problem of detecting user input through GUI widgets and proposes two solutions: Polling and the Observer Pattern. In Polling, the program continuously checks for events, which is deemed cumbersome. The Observer Pattern is preferred, where objects register interest in a subject's events and wait for notifications. Java Swing framework is used for GUI construction, employing widgets like JFrame, JPanel, and JButton. ActionListener interface is implemented for event handling. Threads' execution in GUI apps is also explained, showing how the initial thread executing main hands control to an event dispatch thread post-construction.
+
+
+- Lecture 42 (Model-View-Controller)
+
+Model-View-Controller 
+  
+• The Model-View-Controller (MVC) design pattern facilitates a systematic separation of concerns within an application, promoting organized and modular code. Here's a detailed breakdown of its components and their interactions:
+
+• Model:
+	• Responsibility: Holds the core data and business logic.
+	• Interaction: Notifies View of changes, and updates from Controller.
+
+• View:
+	• Responsibility: Presents the user interface and displays data.
+	• Interaction: Observes Model for changes, sends user commands to Controller.
+
+• Controller:
+	• Responsibility: Handles user input, interfaces between Model and View.
+	• Interaction: Updates Model based on user input, and may update View to reflect changes in Model.
+
+
+• Flow:
+	• User interacts with the View, triggering events.
+	• Controller receives user input from View, processes (possibly updating Model), then updates View accordingly.
+	• If Model changes (through Controller or otherwise), View gets updated to reflect changes.
+
+This separation streamlines code management, enhances scalability, and improves the ability to test and maintain applications.
+
+
+- Lecture 43 (Constructor for View Class)
+
+Constructor for View Class 
+  
+1.)  Create the JFrame:
+	• A JFrame is a window in Java Swing where components like buttons, text fields can be added. The line super("Simple GUI Demo"); creates a JFrame with the title "Simple GUI Demo".
+
+2.) Set Up GUI Widgets and Layout:
+	• Widgets such as JTextAreas and JButtons are created using new JTextArea(...), new JButton("Copy Input"), etc.
+	• Layout managers like GridLayout are used to arrange widgets within containers.
+
+3.) Set Up Observers:
+	• Observers are set up to handle events. The lines this.resetButton.addActionListener(this); and this.copyButton.addActionListener(this); register the current object (this) as an observer to button events.
+
+4.) Start the Main Window:
+	• this.pack(); sizes the frame so that all its contents are at or above their preferred sizes.
+	• this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); ensures the application exits when the window is closed.
+	• this.setVisible(true); makes the JFrame visible.
+
+The GUI is now ready for user interaction, and any action performed on the buttons will trigger the actionPerformed method, which needs to be defined to handle these actions.
+
+
+- Lecture 44 (Loop Invariants, Part 1)
+
+Loop Invariants: Part 1 
+  
+• Method Calls:
+	• Precondition: A condition that must be true before a method is called.
+	• Postcondition: A condition that is true after a method has been executed.
+
+• Loops:
+	• Loop Invariant: A condition that remains true before and after each iteration of a loop. It's crucial for understanding and verifying the loop's behavior.
+
+• Example Provided:
+	• An example is given with a while loop that dequeues elements from one queue and enqueues them into another. It explains the loop invariant this * q = #this * #q which remains true across the loop iterations.
+
+• Loop Termination:
+	• A progress metric (or a variant function) is introduced to ensure that the loop terminates. In the given example, the size of the queue q is used as a progress metric, which decreases with each iteration ensuring loop termination.
+
+• Conclusion:
+	• Emphasizes understanding loop invariants and progress metrics to avoid common errors such as off-by-one errors, missing or incorrect code within the loop body, and improper variable declarations.
+
+
+In the given example, a method append is demonstrated where a while loop iteratively dequeues elements from one queue and enqueues them into another. The loop invariant this * q = #this * #q helps verify the correctness of the loop by ensuring that the concatenation of the queue elements remains consistent across iterations. The slides also introduce a progress metric to ensure loop termination, using the queue size as a metric, which decreases with each iteration, thereby ensuring the loop's termination.
+
+
+- Lecture 45 (Loop Invariants, Part 2)
+
+Loop Invariants: Part 2 
+  
+  
+• Loop invariants are crucial for understanding and ensuring a loop's correctness and termination. They are properties that hold true before a loop starts and after each iteration, which helps in reasoning about the loop's behavior over time. The lecture explains the significance of loop invariants using examples, and how they are used to avoid common errors like off-by-one mistakes. It also emphasizes the importance of maintaining the loop invariant throughout the loop's execution, and introduces the notion of a progress metric to ensure that the loop eventually terminates. This structured approach assists in writing error-free and efficient loop code.
+
+
+
+Examples:
+• A loop to concatenate two queues (q to this). The loop invariant here is this * q = #this * #q, which means the concatenation of the current values of this and q is equal to the concatenation of their initial values.
+
+• A method to compute x to the power p. The loop invariant in this case is pLeft >= 0 and result * factor^(pLeft) = x^(p), which helps to ensure that the loop is making progress towards computing the final result of x to the power p.
+
+These examples illustrate how loop invariants help in reasoning about the functionality and correctness of loops.
+
+
+
+
+- Project 1
+	- Project 1 Instructions
+		- Project: Create Your Own Home Page
+
+Objectives
+1.) Familiarity with using simple HTML markup
+2.) Exposure to using several Eclipse features including creating a project, creating a file, importing a file, structured editing of HTML, opening files with multiple tools, and exporting a project
+3.) Exposure to what is meant by developing "life-long learning" skills
+
+The Problem
+The lingua franca of the web is HTML: Hyper Text Markup Language. Your job is to learn enough about well-formed HTML to create a personal home page that includes the following elements: at least one heading, at least one paragraph, at least one image (e.g., a picture of yourself), at least one ordered or unordered list, at least one table (e.g., information about yourself that you are willing to share publicly), and at least one hyperlink to an external page.
+
+Method
+- If you don't already know enough HTML to do this project, you're not alone! Fortunately, there are many decent HTML tutorials available on the web, e.g., Learn XHTML and W3Schools. We recommend that you start early and ask questions in class if you run into problems.
+
+1.) Create a new Eclipse project by using File > New > Project..., where you should navigate in the list of wizards to Web > Static Web Project. (Do not copy the ProjectTemplate Eclipse project created in lab, which is a template for your up-coming Java programming projects, not this one.) Name the new project HomePage and accept the default settings by cicking Finish. You may be asked whether you want Eclipse to open the Web perspective, if so, click Open Perspective. In the Project Explorer view right-click on the public folder of this project to get the contextual pop-up menu and create a new file in it by using New > HTML File (or New > Other...; navigate to Web > HTML File, click Next), then name the new file index.html. Click on Next and, from the choice of templates, to generate the initial contents of the new file, choose New XHTML File (1.0 strict); this allows the HTML editor to support you in creating well-formed HTML. Do not change the first five lines of the file, which contain the ?xml, !DOCTYPE, and meta elements that are already set up appropriately.
+2.) Use Eclipse's file import feature to get an image file into the same folder as index.html so you can meet the image-element requirement. First, get an image file (maybe on the web or from your own photo gallery, if you have one) onto the computer you're using to run Eclipse. Then right-click on the public folder to get the contextual pop-up menu, choose Import..., navigate in the wizard to General > File System, browse to find the image file you wish to use, and import it into the project.
+Use Eclipse's HTML editor to edit the initial page to meet the problem requirements above. Several particular features will be your friends: in the HTML editor, check out the menu item Source > Format; in the Project Explorer, right-click on index.html to get the contextual pop-up menu and check out Open 3.) With so you can see what your page looks like in a web browser; and in the editor area, pay attention to the warnings Eclipse provides when your HTML is not XHTML-compliant.
+Once your page is done and you believe you have satisfied all the project requirements, validate your page by uploading it at Markup Validation Service. Make sure you address all errors and warnings returned by the validator before submitting your project.
+4.) Select your Eclipse project HomePage in the Project Explorer (not just some of the files, but the whole project), create a zip archive of it, and submit the zip archive to the Carmen dropbox for this project, as described in Submitting a Project.
+
+
+
+	- Project 1 Answer
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>HomePage</title>
+</head>
+<body>
+<p> I am a first year student studying CSE. </p>
+<p> <img src="New_york_times_square-terabass.jpeg" alt = "NYC"/> </p>
+
+<ul>
+    <li>Cats </li>
+    <li>Dogs </li>
+    <li>Horses </li>
+    <li>Lizards </li>
+</ul>
+
+<table>
+  <tr>
+    <th>Europe</th>
+    <th>Asia</th>
+    <th>Africa</th>
+  </tr>
+  <tr>
+    <td>Russia</td>
+    <td>India</td>
+    <td>Egypt</td>
+  </tr>
+  <tr>
+    <td>Moscow</td>
+    <td>New Delhi</td>
+    <td>Cairo</td>
+  </tr>
+</table>
+
+<p><a href="www.wikipedia.org">Wikipedia: </a></p>
+
+
+</body>
+</html>
+
+
+
+- Project 2
+	- Project 2 Instructions
+
+Project: Compute Roots Using Newton Iteration
+
+Objectives
+1.) Exposure to using double variables, while loops, and static methods
+2.) Exposure to using several Eclipse features including creating a project by copying an existing project, renaming a Java file using refactoring, deleting files, creating a file by copying an existing file, using the Java editor, and exporting a project
+
+The Problem
+- Your first job is to create a Java program that repeatedly asks the user whether they wish to calculate a square root. Each time, if the response is "y", then the program should proceed; if it is anything else, then the program should quit. Whenever it proceeds, the program should prompt the user for a number (a positive double, and your program may simply assume the input is consistent with this requirement) and then report the square root of that number to within a relative error of no more than 0.01%. The computation must be done using Newton iteration.
+
+- The intuitive idea of Newton iteration for computing square roots is fairly straightforward. Suppose you have a guess r for x^(1/2) that is too large; the argument is similar if it is too small. If r is too large to be the square root of x, then x/r must be too small, so the average of r and x/r should be a better guess than either r or x/r. This suggests that if you repeatedly replace your current guess r by (r + x/r)/2, then your sequence of guesses should converge to x^(1/2). And indeed it can be proved that it does. A good initial guess for x^(1/2) is simply r = x. If you continue updating r until |r^2 – x|/x < ε^2, then the relative error of the guess r will be less than ε.
+
+After your initial program works, there are a number of other requirements to change it slightly, one step at a time, as explained below.
+
+Method
+- Note: this is the last project description that will include instructions about basic Eclipse operations you have practiced already; see Environment Setup and Getting to Know Eclipse and Java. As always, we recommend that you start early and ask questions in class if you run into problems..
+1.) Create a new Eclipse project by copying ProjectTemplate (if needed, see Creating a New Project from a Project Template for details). Name the new project Newton.
+2.) Open the src folder of this project and then open (default package). As a starting point you should use ProgramWithIOAndStaticMethod.java. Rename it Newton1 and delete the other files from the project (if needed, see Creating a Program from a Skeleton (also Renaming a Java Program) for details).
+3.) Edit Newton1.java to satisfy the problem requirements stated above, including updating comments appropriately. Estimating the square root should be done in a static method declared as follows:
+------
+/**
+ * Computes estimate of square root of x to within relative error 0.01%.
+ * 
+ * @param x
+ *            positive number to compute square root of
+ * @return estimate of square root
+ */
+private static double sqrt(double x) {
+    ...
+}
+-----
+4.) Copy Newton1.java to create Newton2.java. Change sqrt (including its Javadoc comments) so it also works when x = 0. Note: if your code from Newton1 appears to work without any changes, but it is such that it might execute a division by 0, then it is not correct. Division by 0, in general, is undefined and you should not write code that attempts to compute it.
+5.) Copy Newton2.java to create Newton3.java. Change it so the main program prompts the user to input the value of ε (rather than assuming it is 0.0001), just once as the program begins, and so this value is also passed to sqrt.
+6.) Copy Newton3.java to create Newton4.java. Change it so the main program does not ask the user whether they wish to calculate a square root, but instead simply asks for a new value of x each time and interprets a negative value as an indication that it's time to quit.
+7.) Select your Eclipse project Newton (not just some of the files, but the whole project), create a zip archive of it, and submit the zip archive to the Carmen dropbox for this project, as described in Submitting a Project.
+
+
+	- Project 2 Answer
+		- Newton1
+
+import components.simplereader.SimpleReader;
+import components.simplereader.SimpleReader1L;
+import components.simplewriter.SimpleWriter;
+import components.simplewriter.SimpleWriter1L;
+
+/**
+ * Finds the square root of a number.
+ *
+ * @author Harish Mukkapati
+ *
+ */
+public final class Newton1 {
+
+    /**
+     * Constant error value.
+     */
+    public static final double ERROR = 0.0001;
+
+    /**
+     * Private constructor so this utility class cannot be instantiated.
+     */
+    private Newton1() {
+    }
+
+    /**
+     * Computes estimate of square root of x to within relative error 0.01%.
+     *
+     * @param x
+     *            positive number to compute square root of
+     * @return estimate of square root
+     */
+    private static double sqrt(double x) {
+        // Good initial guess
+        double r = x;
+
+        // Makes sure that calculation is run at least once
+        boolean withinError = false;
+
+        // Repeatedly guesses until within the dictated margin of error
+        while (!withinError) {
+            r = (r + x / r) / 2;
+            withinError = Math.abs(Math.pow(r, 2) - x) / x < Math.pow(ERROR, 2);
+
+        }
+
+        return r;
+    }
+
+    /**
+     * Main method.
+     *
+     * @param args
+     *            the command line arguments
+     */
+    public static void main(String[] args) {
+        SimpleReader in = new SimpleReader1L();
+        SimpleWriter out = new SimpleWriter1L();
+        String proceed = "y";
+
+        out.print("Would you like to calculate a square root (y to proceed): ");
+        String proceedActual = in.nextLine();
+
+        boolean next = proceedActual.equals(proceed);
+
+        if (next) {
+            while (next) {
+
+                // Receives the user input value
+                out.print("Enter value to calculate square root for: ");
+                double input = in.nextDouble();
+
+                // Calls the method which will calculate the square root
+                double result = sqrt(input);
+                out.println("The square root is: " + result);
+                // Asks user if they would like to calculate another square root
+                out.print(
+                        "Would you like to calculate another square root (y to proceed)"
+                                + ": ");
+                proceedActual = in.nextLine();
+                next = proceedActual.equals(proceed);
+
+            }
+        }
+
+        /*
+         * Close input and output streams
+         */
+        in.close();
+        out.close();
+    }
+
+}
+
+	- Newton2
+
+import components.simplereader.SimpleReader;
+import components.simplereader.SimpleReader1L;
+import components.simplewriter.SimpleWriter;
+import components.simplewriter.SimpleWriter1L;
+
+/**
+ * Finds the square root of a number.
+ *
+ * @author Harish Mukkapati
+ *
+ */
+public final class Newton2 {
+
+    /**
+     * Constant error value.
+     */
+    public static final double ERROR = 0.0001;
+
+    /**
+     * Private constructor so this utility class cannot be instantiated.
+     */
+    private Newton2() {
+    }
+
+    /**
+     * Computes estimate of square root of x to within relative error 0.01%.
+     *
+     * @param x
+     *            positive number to compute square root of
+     * @return estimate of square root
+     */
+    private static double sqrt(double x) {
+        // Good initial guess
+        double r = x;
+
+        // If condition makes sure that method works even if input value is 0
+        if (x != 0) {
+            // Makes sure that calculation is run at least once
+            boolean withinError = false;
+
+            // Repeatedly guesses until within the dictated margin of error
+            while (!withinError) {
+                r = (r + x / r) / 2;
+                withinError = Math.abs(Math.pow(r, 2) - x) / x < Math.pow(ERROR,
+                        2);
+            }
+        }
+
+        return r;
+    }
+
+    /**
+     * Main method.
+     *
+     * @param args
+     *            the command line arguments
+     */
+    public static void main(String[] args) {
+        SimpleReader in = new SimpleReader1L();
+        SimpleWriter out = new SimpleWriter1L();
+        String proceed = "y";
+
+        out.print("Would you like to calculate a square root (y to proceed): ");
+        String proceedActual = in.nextLine();
+
+        boolean next = proceedActual.equals(proceed);
+
+        if (next) {
+            while (next) {
+
+                // Receives the user input value
+                out.print("Enter value to calculate square root for: ");
+                double input = in.nextDouble();
+
+                // Calls the method which will calculate the square root
+                double result = sqrt(input);
+                out.println("The square root is: " + result);
+                // Asks user if they would like to calculate another square root
+                out.print(
+                        "Would you like to calculate another square root (y to proceed)"
+                                + ": ");
+                proceedActual = in.nextLine();
+                next = proceedActual.equals(proceed);
+
+            }
+        }
+
+        /*
+         * Close input and output streams
+         */
+        in.close();
+        out.close();
+    }
+
+}
+
+	- Newton3
+
+import components.simplereader.SimpleReader;
+import components.simplereader.SimpleReader1L;
+import components.simplewriter.SimpleWriter;
+import components.simplewriter.SimpleWriter1L;
+
+/**
+ * Finds the square root of a number.
+ *
+ * @author Harish Mukkapati
+ *
+ */
+public final class Newton3 {
+
+    /**
+     * Private constructor so this utility class cannot be instantiated.
+     */
+    private Newton3() {
+    }
+
+    /**
+     * Computes estimate of square root of x to within relative error 0.01%.
+     *
+     * @param x
+     *            positive number to compute square root of
+     * @param error
+     *            specified error value by the user
+     * @return estimate of square root
+     */
+    private static double sqrt(double x, double error) {
+        // Good initial guess
+        double r = x;
+
+        // If condition makes sure that method works even if input value is 0
+        if (x != 0) {
+            // Makes sure that calculation is run at least once
+            boolean withinError = false;
+
+            // Repeatedly guesses until within the dictated margin of error
+            while (!withinError) {
+                r = (r + x / r) / 2;
+                withinError = Math.abs(Math.pow(r, 2) - x) / x < Math.pow(error,
+                        2);
+            }
+        }
+
+        return r;
+    }
+
+    /**
+     * Main method.
+     *
+     * @param args
+     *            the command line arguments
+     */
+    public static void main(String[] args) {
+        SimpleReader in = new SimpleReader1L();
+        SimpleWriter out = new SimpleWriter1L();
+
+        String proceed = "y";
+
+        out.print("Would you like to calculate a square root (y to proceed): ");
+        String proceedActual = in.nextLine();
+
+        boolean next = proceedActual.equals(proceed);
+
+        if (next) {
+            while (next) {
+
+                // Receives the user input value
+                out.print("Enter value to calculate square root for: ");
+                double input = in.nextDouble();
+
+                // Receives the value for error
+                out.print("Enter the value for error: ");
+                double error = in.nextDouble();
+
+                // Calls the method which will calculate the square root
+                double result = sqrt(input, error);
+                out.println("The square root is: " + result);
+
+                // Asks user if they would like to calculate another square root
+                out.print(
+                        "Would you like to calculate another square root (y to proceed)"
+                                + ": ");
+                proceedActual = in.nextLine();
+                next = proceedActual.equals(proceed);
+
+            }
+        }
+
+        /*
+         * Close input and output streams
+         */
+        in.close();
+        out.close();
+    }
+
+}
+
+
+	- Newton4
+
+import components.simplereader.SimpleReader;
+import components.simplereader.SimpleReader1L;
+import components.simplewriter.SimpleWriter;
+import components.simplewriter.SimpleWriter1L;
+
+/**
+ * Finds the square root of a number.
+ *
+ * @author Harish Mukkapati
+ *
+ */
+public final class Newton4 {
+
+    /**
+     * Private constructor so this utility class cannot be instantiated.
+     */
+    private Newton4() {
+    }
+
+    /**
+     * Computes estimate of square root of x to within relative error 0.01%.
+     *
+     * @param x
+     *            positive number to compute square root of
+     * @param error
+     *            specified error value by the user
+     * @return estimate of square root
+     */
+    private static double sqrt(double x, double error) {
+        // Good initial guess
+        double r = x;
+
+        // If condition makes sure that method works even if input value is 0
+        if (x != 0) {
+            // Makes sure that calculation is run at least once
+            boolean withinError = false;
+
+            // Repeatedly guesses until within the dictated margin of error
+            while (!withinError) {
+                r = (r + x / r) / 2;
+                withinError = Math.abs(Math.pow(r, 2) - x) / x < Math.pow(error,
+                        2);
+            }
+        }
+
+        return r;
+    }
+
+    /**
+     * Main method.
+     *
+     * @param args
+     *            the command line arguments
+     */
+    public static void main(String[] args) {
+        SimpleReader in = new SimpleReader1L();
+        SimpleWriter out = new SimpleWriter1L();
+
+        // Initial value of input is some positive value
+        double input = Double.MAX_VALUE;
+
+        while (input >= 0) {
+
+            // Receives the user input value
+            out.print("Enter value to calculate square root for: ");
+            input = in.nextDouble();
+
+            if (input >= 0) {
+                // Receives the value for error
+                out.print("Enter the value for error: ");
+                double error = in.nextDouble();
+
+                // Calls the method which will calculate the square root
+                double result = sqrt(input, error);
+                out.println("The square root is: " + result);
+            }
+        }
+
+        /*
+         * Close input and output streams
+         */
+        in.close();
+        out.close();
+    }
+
+}
+
+- Project 3
+	- Project 3 Instructions
+
+Project: Pseudoscience
+
+Objectives
+1.) Familiarity with using while loops and static methods
+2.) Exposure to using nested while and for loops and arrays
+
+The Problem
+In his book Irreligion, the mathematician John Allen Paulos tells an amusing story about the Dutch astronomer Cornelis de Jager, "who concocted the following algorithm for personalized physical constants, [and] used it to advance a charming theory about the metaphysical properties of Dutch bicycles." First select any positive real-valued universal physical or mathematical constant that seems interesting to you, e.g., π, e, Planck's constant, the atomic weight of molybdenum, the boiling point of water in Kelvin, whatever you like. Call this constant μ. Then select any four positive real numbers not equal to 1 that have personal meaning to you, e.g., your favorite number, day or month or year of birth, age in fortnights or seconds, weight in stones or grams, height in furlongs or millimeters, number of children, house number, apartment number, zip code, last four digits of SSN, whatever you like. Call these four personal numbers w, x, y, and z.
+
+Now consider the de Jager formula waxbyczd, where each of a, b, c, and d is one of the 17 numbers {-5, -4, -3, -2, -1, -1/2, -1/3, -1/4, 0, 1/4, 1/3, 1/2, 1, 2, 3, 4, 5}. The "charming theory" asserts that the de Jager formula with your four personal numbers can be used to approximate μ within a fraction of 1% relative error. For example, suppose you choose to approximate the mean distance from the earth to the moon in miles: μ = 238,900. And suppose you are an OSU sports fan, so your personal numbers are the number of wins in OSU's last national championship season (14), the seating capacity of Ohio Stadium (102,329), the year of Jesse Owens' four gold medals in Berlin (1936), and your jersey number when you played high school field hockey (13). Then the value of 14-5102329119361/2134 is about 239,103, which is within about 0.08% of μ.
+
+Your job is to create a Java program that asks the user what constant μ should be approximated, and then asks in turn for each of the four personal numbers w, x, y, and z. The program should then calculate and report the values of the exponents a, b, c, and d that bring the de Jager formula as close as possible to μ, as well as the value of the formula waxbyczd and the relative error of the approximation to the nearest hundredth of one percent (see SimpleWriter print(double, int, boolean) for a method you may find useful for this). Note that your program must find the combination of exponents that minimizes the error of the approximation of μ and then print the exponents, best approximation, and corresponding relative error. (Essentially this program could be used to disprove the "charming theory" by finding μ, w, x, y, and z such that the best approximation of μ results in a relative error that is greater than 1%.)
+
+Method
+1.) Create a new Eclipse project by copying ProjectTemplate or a previous project you have created, naming the new project Pseudoscience. In the src folder of this project and the default package, create a class called ABCDGuesser1.
+2.) Edit ABCDGuesser1.java to satisfy the problem requirements stated above, as well as the following additional requirements:
+	- Use only while loops for iteration.
+	- Check that the inputs provided by the user are valid, i.e., the input for μ is a positive real value and the inputs for w, x, y, and z are each a positive real value not equal to 1. You should implement and use two new static methods declared as follows:
+-----
+/**
+ * Repeatedly asks the user for a positive real number until the user enters
+ * one. Returns the positive real number.
+ * 
+ * @param in
+ *            the input stream
+ * @param out
+ *            the output stream
+ * @return a positive real number entered by the user
+ */
+private static double getPositiveDouble(SimpleReader in, SimpleWriter out) {...}
+  
+/**
+ * Repeatedly asks the user for a positive real number not equal to 1.0
+ * until the user enters one. Returns the positive real number.
+ * 
+ * @param in
+ *            the input stream
+ * @param out
+ *            the output stream
+ * @return a positive real number not equal to 1.0 entered by the user
+ */
+private static double getPositiveDoubleNotOne(SimpleReader in, SimpleWriter out) {...}
+-----
+	- Note that you cannot assume the user will provide a number; the user can type pretty much anything. So your methods should read the input as a String (use SimpleReader nextLine() method), then make sure that the input is a real number (use FormatChecker.canParseDouble()), and finally convert the string to a double (use Double.parseDouble()).
+3.) Copy ABCDGuesser1.java to create ABCDGuesser2.java. Change it so the while loops in the main method are replaced by for loops (but you should not change the loops in the bodies of getPositiveDouble and getPositiveDoubleNotOne), and so it uses at least one additional private static method.
+4.) Select your Eclipse project Pseudoscience (not just some of the files, but the whole project), create a zip archive of it, and submit the zip archive to the Carmen dropbox for this project, as described in Submitting a Project.
+
+	- Project 3 Answer
+		- ABCDGuesser1
+
+import components.simplereader.SimpleReader;
+import components.simplereader.SimpleReader1L;
+import components.simplewriter.SimpleWriter;
+import components.simplewriter.SimpleWriter1L;
+import components.utilities.FormatChecker;
+
+/**
+ * This program uses the "charming theory" thought of by Cornelis de Jager that
+ * allows any for any four real positive numbers to be plugged in and then when
+ * each is multiplied and put to one of 17 exponents it will get you within one
+ * percent of any real positive number. Uses only while loops for iteration.
+ *
+ * @author Harish Mukkapati
+ *
+ */
+public final class ABCDGuesser1 {
+
+    /**
+     * No argument constructor--private to prevent instantiation.
+     */
+    private ABCDGuesser1() {
+    }
+
+    /**
+     * Used to check to make sure input is both a double and positive. Will tell
+     * the user if they do not enter a valid input.
+     *
+     * @param in
+     *            the input stream
+     * @param out
+     *            the output stream
+     * @param check
+     *            A string to check to make sure it can be parsed to a double
+     * @return a positive real number entered by user
+     */
+    private static double checkPositiveAndDouble(SimpleReader in,
+            SimpleWriter out, String check) {
+
+        // Original String inputed by user
+        String posDoubleCheck = check;
+
+        // Booleans to check whether the input is not a double or positive
+        boolean notDouble = true;
+        boolean notPositive = true;
+
+        //holds the value of the positive double
+        double posDouble = -1;
+
+        // Loops until the input is both a double and positive
+        while (notDouble || notPositive) {
+
+            // Sets both notDouble and notPositive to false in order to end loop
+            notDouble = false;
+            notPositive = false;
+
+            // Checks if input is a double
+            while (!FormatChecker.canParseDouble(posDoubleCheck)) {
+                out.print("You must input a double: ");
+                posDoubleCheck = in.nextLine();
+                notDouble = true;
+            }
+            posDouble = Double.parseDouble(posDoubleCheck);
+
+            // Checks if input is positive
+            while (posDouble < 0) {
+                posDouble = 1;
+                out.print("Your input must be positive: ");
+                posDoubleCheck = in.nextLine();
+                if (FormatChecker.canParseDouble(posDoubleCheck)) {
+                    posDouble = Double.parseDouble(posDoubleCheck);
+                }
+                notPositive = true;
+            }
+        }
+        return posDouble;
+    }
+
+    /**
+     * Repeatedly asks the user for a positive real number until the user enters
+     * one. Returns the positive real number.
+     *
+     * @param in
+     *            the input stream
+     * @param out
+     *            the output stream
+     * @return a positive real number entered by the user
+     */
+    private static double getPositiveDouble(SimpleReader in, SimpleWriter out) {
+        out.print("Please input a positive real number: ");
+        String checkPositiveDouble = in.nextLine();
+        double isPositiveDouble = checkPositiveAndDouble(in, out,
+                checkPositiveDouble);
+        return isPositiveDouble;
+    }
+
+    /**
+     * Repeatedly asks the user for a positive real number not equal to 1.0
+     * until the user enters one. Returns the positive real number.
+     *
+     * @param in
+     *            the input stream
+     * @param out
+     *            the output stream
+     * @return a positive real number not equal to 1.0 entered by the user
+     */
+    private static double getPositiveDoubleNotOne(SimpleReader in,
+            SimpleWriter out) {
+        final double one = 1.0;
+        out.print("Please input a new positive real number not equal to 1.0: ");
+        String checkPositiveDoubleNotOne = in.nextLine();
+        double isPositiveDoubleNotOne = checkPositiveAndDouble(in, out,
+                checkPositiveDoubleNotOne);
+
+        // Makes sure input is not 1.0
+        while (isPositiveDoubleNotOne == one) {
+            out.print("Please input a positive real number not equal to 1.0: ");
+            checkPositiveDoubleNotOne = in.nextLine();
+            isPositiveDoubleNotOne = checkPositiveAndDouble(in, out,
+                    checkPositiveDoubleNotOne);
+        }
+        return isPositiveDoubleNotOne;
+    }
+
+    /**
+     * Main method.
+     *
+     * @param args
+     *            the command line arguments
+     */
+    public static void main(String[] args) {
+        SimpleReader in = new SimpleReader1L();
+        SimpleWriter out = new SimpleWriter1L();
+
+        // Array of all 17 exponents
+        final double[] jager = { -5.0, -4.0, -3.0, -2.0, -1.0, -1.0 / 2,
+                -1.0 / 3, -1.0 / 4, 0, 1.0 / 4, 1.0 / 3, 1.0 / 2, 1.0, 2.0, 3.0,
+                4.0, 5.0 };
+
+        // Used to convert error into a percent
+        final double toPercentage = 100.0;
+
+        // Calls method to get user input for mu
+        double mu = getPositiveDouble(in, out);
+
+        // Calls method to get user input for four numbers wxyz
+        double w = getPositiveDoubleNotOne(in, out);
+        double x = getPositiveDoubleNotOne(in, out);
+        double y = getPositiveDoubleNotOne(in, out);
+        double z = getPositiveDoubleNotOne(in, out);
+
+        // Initializes the counters for all four loops
+        int a = 0;
+        int b = 0;
+        int c = 0;
+        int d = 0;
+
+        /**
+         * Initializes the double to store the least difference to mu, starts
+         * equal to mu
+         */
+        double finDiff = mu;
+
+        // Initializes the double that stores the closest approximation using the formula
+        double finApprox = 0;
+
+        // Initializes the four doubles that store the exponents that are in each position
+        double finA = 0;
+        double finB = 0;
+        double finC = 0;
+        double finD = 0;
+
+        /**
+         * Series of while loops that try every possible combination of abcd and
+         * stores the closest values to mu
+         */
+        while (d < jager.length) {
+            c = 0;
+            while (c < jager.length) {
+                b = 0;
+                while (b < jager.length) {
+                    a = 0;
+                    while (a < jager.length) {
+                        double approxProduct = Math.pow(w, jager[a])
+                                * Math.pow(x, jager[b]) * Math.pow(y, jager[c])
+                                * Math.pow(z, jager[d]);
+                        double diff = Math.abs(mu - approxProduct);
+
+                        /**
+                         * If statement that checks to see if the new difference
+                         * is closer to mu than the current closest difference,
+                         * if so it stores the values at the time
+                         */
+                        if (diff < finDiff) {
+                            finA = jager[a];
+                            finB = jager[b];
+                            finC = jager[c];
+                            finD = jager[d];
+                            finDiff = diff;
+                            finApprox = approxProduct;
+                        }
+                        a++;
+                    }
+                    b++;
+                }
+                c++;
+            }
+            d++;
+        }
+
+        // Prints out final values
+        out.println("A = " + finA + ", B = " + finB + ", C = " + finC + ", D = "
+                + finD);
+        out.println("Plugging these numbers in gives us: " + finApprox);
+        double error = (finDiff / finApprox) * toPercentage;
+        out.println("Making the error:" + error + "%");
+
+        /*
+         * Close input and output streams
+         */
+        in.close();
+        out.close();
+    }
+
+}
+
+
+		- ABCDGuesser2
+
+import components.simplereader.SimpleReader;
+import components.simplereader.SimpleReader1L;
+import components.simplewriter.SimpleWriter;
+import components.simplewriter.SimpleWriter1L;
+import components.utilities.FormatChecker;
+
+/**
+ * This program uses the "charming theory" thought of by Cornelis de Jager that
+ * allows any for any four real positive numbers to be plugged in and then when
+ * each is multiplied and put to one of 17 exponents it will get you within one
+ * percent of any real positive number. Uses only for loops for iteration.
+ *
+ * @author Harish Mukkapati
+ *
+ */
+public final class ABCDGuesser2 {
+
+    /**
+     * No argument constructor--private to prevent instantiation.
+     */
+    private ABCDGuesser2() {
+    }
+
+    /**
+     * Used to check to make sure input is both a double and positive. Will tell
+     * the user if they do not enter a valid input.
+     *
+     * @param in
+     *            the input stream
+     * @param out
+     *            the output stream
+     * @param check
+     *            A string to check to make sure it can be parsed to a double
+     * @return a positive real number entered by user
+     */
+    private static double checkPositiveAndDouble(SimpleReader in,
+            SimpleWriter out, String check) {
+
+        // Original String inputed by user
+        String posDoubleCheck = check;
+
+        // Booleans to check whether the input is not a double or positive
+        boolean notDouble = true;
+        boolean notPositive = true;
+
+        // Holds the value of the positive double
+        double posDouble = -1;
+
+        // Loops until the input is both a double and positive
+        while (notDouble || notPositive) {
+
+            // Sets both notDouble and notPositive to false in order to end loop
+            notDouble = false;
+            notPositive = false;
+
+            // Checks if input is a double
+            while (!FormatChecker.canParseDouble(posDoubleCheck)) {
+                out.print("You must input a double: ");
+                posDoubleCheck = in.nextLine();
+                notDouble = true;
+            }
+            posDouble = Double.parseDouble(posDoubleCheck);
+
+            // Checks if input is positive
+            while (posDouble < 0) {
+                posDouble = 1;
+                out.print("Your input must be positive: ");
+                posDoubleCheck = in.nextLine();
+                if (FormatChecker.canParseDouble(posDoubleCheck)) {
+                    posDouble = Double.parseDouble(posDoubleCheck);
+                }
+                notPositive = true;
+            }
+        }
+        return posDouble;
+    }
+
+    /**
+     * Repeatedly asks the user for a positive real number until the user enters
+     * one. Returns the positive real number.
+     *
+     * @param in
+     *            the input stream
+     * @param out
+     *            the output stream
+     * @return a positive real number entered by the user
+     */
+    private static double getPositiveDouble(SimpleReader in, SimpleWriter out) {
+        out.print("Please input a positive real number: ");
+        String checkPositiveDouble = in.nextLine();
+        double isPositiveDouble = checkPositiveAndDouble(in, out,
+                checkPositiveDouble);
+        return isPositiveDouble;
+    }
+
+    /**
+     * Repeatedly asks the user for a positive real number not equal to 1.0
+     * until the user enters one. Returns the positive real number.
+     *
+     * @param in
+     *            the input stream
+     * @param out
+     *            the output stream
+     * @return a positive real number not equal to 1.0 entered by the user
+     */
+    private static double getPositiveDoubleNotOne(SimpleReader in,
+            SimpleWriter out) {
+        final double one = 1.0;
+        out.print("Please input a new positive real number not equal to 1.0: ");
+        String checkPositiveDoubleNotOne = in.nextLine();
+        double isPositiveDoubleNotOne = checkPositiveAndDouble(in, out,
+                checkPositiveDoubleNotOne);
+
+        // Makes sure input is not 1.0
+        while (isPositiveDoubleNotOne == one) {
+            out.print("Please input a positive real number not equal to 1.0: ");
+            checkPositiveDoubleNotOne = in.nextLine();
+            isPositiveDoubleNotOne = checkPositiveAndDouble(in, out,
+                    checkPositiveDoubleNotOne);
+        }
+        return isPositiveDoubleNotOne;
+    }
+
+    /**
+     * Finds the absolute difference between two doubles.
+     *
+     * @param x
+     *            first double
+     * @param y
+     *            seccond double
+     * @return absolute difference of the two doubles
+     */
+    private static double getDifference(double x, double y) {
+        double a = x;
+        double b = y;
+        return Math.abs(a - b);
+    }
+
+    /**
+     * Main method.
+     *
+     * @param args
+     *            the command line arguments
+     */
+    public static void main(String[] args) {
+        SimpleReader in = new SimpleReader1L();
+        SimpleWriter out = new SimpleWriter1L();
+
+        // Array of all 17 exponents
+        final double[] jager = { -5.0, -4.0, -3.0, -2.0, -1.0, -1.0 / 2,
+                -1.0 / 3, -1.0 / 4, 0, 1.0 / 4, 1.0 / 3, 1.0 / 2, 1.0, 2.0, 3.0,
+                4.0, 5.0 };
+
+        // Used to convert error into a percent
+        final double toPercentage = 100.0;
+
+        // Calls method to get user input for mu
+        double mu = getPositiveDouble(in, out);
+
+        // Calls method to get user input for four numbers wxyz
+        double w = getPositiveDoubleNotOne(in, out);
+        double x = getPositiveDoubleNotOne(in, out);
+        double y = getPositiveDoubleNotOne(in, out);
+        double z = getPositiveDoubleNotOne(in, out);
+
+        /**
+         * Initializes the double to store the least difference to mu, starts
+         * equal to mu
+         */
+        double finDiff = mu;
+
+        // Initializes the double that stores the closest approximation using the formula
+        double finApprox = 0;
+
+        // Initializes the four doubles that store the exponents that are in each position
+        double finA = 0;
+        double finB = 0;
+        double finC = 0;
+        double finD = 0;
+
+        /**
+         * Series of for loops that try every possible combination of abcd and
+         * stores the closest values to mu
+         */
+        for (int d = 0; d < jager.length; d++) {
+            for (int c = 0; c < jager.length; c++) {
+                for (int b = 0; b < jager.length; b++) {
+                    for (int a = 0; a < jager.length; a++) {
+                        double approxProduct = Math.pow(w, jager[a])
+                                * Math.pow(x, jager[b]) * Math.pow(y, jager[c])
+                                * Math.pow(z, jager[d]);
+                        double diff = getDifference(approxProduct, mu);
+
+                        /**
+                         * If statement that checks to see if the new difference
+                         * is closer to mu than the current closest difference,
+                         * if so it stores the values at the time
+                         */
+                        if (diff < finDiff) {
+                            finA = jager[a];
+                            finB = jager[b];
+                            finC = jager[c];
+                            finD = jager[d];
+                            finDiff = diff;
+                            finApprox = approxProduct;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Prints out final values
+        out.println("A = " + finA + ", B = " + finB + ", C = " + finC + ", D = "
+                + finD);
+        out.println("Plugging these numbers in gives us: " + finApprox);
+        double error = (finDiff / finApprox) * toPercentage;
+        out.println("Making the error:" + error + "%");
+
+        /*
+         * Close input and output streams
+         */
+        in.close();
+        out.close();
+    }
+
+}
+
+- Project 4
+	- Project 4 Instructions
+
+Project: RSS News Reader
+Important note: The next project will build directly on your solution to this project. It is essential that you get a decent and working solution for this project before you start working on the next one. Please do not delay work on this project because a failure on this one is likely to result in a failure on the next one as well.
+
+Objectives
+1.) Familiarity with using XMLTrees to process XML
+2.) Familiarity with using while loops and static methods
+3.) Exposure to RSS technology
+
+The Problem
+RSS (Really Simple Syndication) is an XML application for distributing web content that changes frequently. Many news-related sites, weblogs and other online publishers syndicate their content as an RSS Feed to whoever wants it.
+
+For this project your task is to write a program that asks the user for the URL of an RSS 2.0 feed and for the name of an output file including the .html extension, reads the RSS feed into an XMLTree object and then uses the information in the XMLTree object to generate in the output file a nicely formatted HTML page with table of links to all the news items in the original feed.
+
+Input: RSS 2.0 XML Document
+Here is a simplified description of the structure of an RSS 2.0 XML document. RSS 2.0 documents can contain a few other tags and features, but these are the ones you will need for the project.
+-----
+<rss version="2.0">
+  <channel>
+    <title>Title goes here</title>
+    <link>Link goes here</link>
+    <description>Description goes here</description>
+    <item>
+      <title>Optional title goes here</title>
+      <description>Optional description goes here</description>
+      <link>Optional link goes here</link>
+      <pubDate>Optional publication date goes here</pubDate>
+      <source url="the source URL">Optional source goes here</source>
+      ...
+    </item>
+    ...
+  </channel>
+</rss>
+-----
+Note the following properties of RSS 2.0 XML documents:
+	- The children of the <channel> tag and of the <item> tag can occur in any order; do not assume they will appear in the order above. Furthermore there can be other children of other types not listed above.
+	- <title>, <link>, and <description> are required children of the <channel> tag, i.e., you should assume they are present. However, <title> and <description> may be blank, i.e., they may not have any text child.
+	- All the children of <item> tag are optional, i.e., do not assume they are present; but, either <title> or <description> must be present. However, the <title> and/or <description> tags, even if present, may be blank, i.e., they may not have any text child.
+	- If a <source> tag appears as a child of an <item> tag, it must have a url attribute.
+
+Note that when your program creates an XMLTree object from a given RSS 2.0 feed, if it is successful, all you know is that the input is a valid XML document. It is up to your program to check that the label of the root of the XMLTree is an <rss> tag and that it has a version attribute with value "2.0". After that, your program can assume that the input is indeed a valid RSS 2.0 feed and the XMLTree has the structure described above; in other words, you do not need to check for the existence of the <channel> tag, or the <title>, <link>, and <description> tags inside that. Make sure you do not make any assumptions that are not specified in the structure described above and, in particular, make sure to check that the channel's <title> and <description> tags and each item's <title> and <description> tags have a child before trying to access it. However, the <item>'s children <link> and <pubDate>, if present, are required to have a child with the needed information. (See slide #9 in RSS for a diagram capturing these requirements.)
+
+Output: HTML Web Page
+These are the minimum requirements for the generated web page. If you think you can produce better output or include more information, you should consult your instructor to make sure that any changes you want to implement are acceptable. This is what your output should include:
+
+the <channel> title as the page title (or "Empty Title" if the <title> tag has no children)
+a header with the page title inside a link to the <channel> link
+a paragraph with the <channel> description (or "No description" if the <description> tag has no children)
+a table with appropriate headers; each row should correspond to one news item with the following columns:
+the publication date, if present, or "No date available"
+the source, if present, which should be linked to the source url, or "No source available"
+the title, if present and not empty, or the description, if not empty, or "No title available", which should be linked if a link for the news item is available
+You can see an example of the output here (note that the links may be outdated and no longer available).
+
+Method
+1.) Create a new Eclipse project by copying ProjectTemplate and name the new project RSSReader.
+2.) Open the src folder of this project and then open (default package). As a starting point you can use any of the Java files. Rename it RSSReader and delete the other files from the project. Open the RSSReader.java file in the editor.
+3.) Follow the link to RSSReader.java, select all the code on that page, copy it to the clipboard, and paste it into Eclipse's editor window to replace the skeleton code.
+4.) Edit RSSReader.java to satisfy the problem requirements stated above by completing the methods provided.
+5.) Select your Eclipse project RSSReader (not just some of the files, but the whole project), create a zip archive of it, and submit the zip archive to the Carmen dropbox for this project, as described in Submitting a Project.
+
+	- Project 4 Answer
+
+import components.simplereader.SimpleReader;
+import components.simplereader.SimpleReader1L;
+import components.simplewriter.SimpleWriter;
+import components.simplewriter.SimpleWriter1L;
+import components.xmltree.XMLTree;
+import components.xmltree.XMLTree1;
+
+/**
+ * Program to convert an XML RSS (version 2.0) feed from a given URL into the
+ * corresponding HTML output file.
+ *
+ * @author Harish Mukkapati
+ *
+ */
+public final class RSSReader {
+
+    /**
+     * Private constructor so this utility class cannot be instantiated.
+     */
+    private RSSReader() {
+    }
+
+    /**
+     * Outputs the "opening" tags in the generated HTML file. These are the
+     * expected elements generated by this method:
+     *
+     * <html> <head> <title>the channel tag title as the page title</title>
+     * </head> <body>
+     * <h1>the page title inside a link to the <channel> link</h1>
+     * <p>
+     * the channel description
+     * </p>
+     * <table border="1">
+     * <tr>
+     * <th>Date</th>
+     * <th>Source</th>
+     * <th>News</th>
+     * </tr>
+     *
+     * @param channel
+     *            the channel element XMLTree
+     * @param out
+     *            the output stream
+     * @updates out.content
+     * @requires [the root of channel is a <channel> tag] and out.is_open
+     * @ensures out.content = #out.content * [the HTML "opening" tags]
+     */
+    private static void outputHeader(XMLTree channel, SimpleWriter out) {
+        assert channel != null : "Violation of: channel is not null";
+        assert out != null : "Violation of: out is not null";
+        assert channel.isTag() && channel.label().equals("channel") : ""
+                + "Violation of: the label root of channel is a <channel> tag";
+        assert out.isOpen() : "Violation of: out.is_open";
+
+        XMLTree titleElement = channel.child(getChildElement(channel, "title"));
+        String title = "Empty Title";
+        if (titleElement.numberOfChildren() > 0) {
+            title = titleElement.child(0).label();
+        }
+        String link = channel.child(getChildElement(channel, "link")).child(0)
+                .label();
+        XMLTree descriptionElement = channel
+                .child(getChildElement(channel, "description"));
+        String description = "No Description";
+        if (descriptionElement.numberOfChildren() > 0) {
+            description = descriptionElement.child(0).label();
+        }
+        out.println("<html> <head> <title>" + title + "</title>");
+        out.println("</head> <body>");
+        out.println("<h1><a href=\"" + link + "\">" + title + "</a></h1>");
+        out.println("<p>" + description + "</p>");
+        out.println("<table border=\"1\">");
+        out.println("<tr>");
+        out.println("<th>Date</th>");
+        out.println("<th>Source</th>");
+        out.println("<th>News</th>");
+        out.println("</tr>");
+    }
+
+    /**
+     * Outputs the "closing" tags in the generated HTML file. These are the
+     * expected elements generated by this method:
+     *
+     * </table>
+     * </body> </html>
+     *
+     * @param out
+     *            the output stream
+     * @updates out.contents
+     * @requires out.is_open
+     * @ensures out.content = #out.content * [the HTML "closing" tags]
+     */
+    private static void outputFooter(SimpleWriter out) {
+        assert out != null : "Violation of: out is not null";
+        assert out.isOpen() : "Violation of: out.is_open";
+
+        out.println("</table>");
+        out.println("</body>");
+        out.print("</html>");
+    }
+
+    /**
+     * Finds the first occurrence of the given tag among the children of the
+     * given {@code XMLTree} and return its index; returns -1 if not found.
+     *
+     * @param xml
+     *            the {@code XMLTree} to search
+     * @param tag
+     *            the tag to look for
+     * @return the index of the first child of type tag of the {@code XMLTree}
+     *         or -1 if not found
+     * @requires [the label of the root of xml is a tag]
+     * @ensures <pre>
+     * getChildElement =
+     *  [the index of the first child of type tag of the {@code XMLTree} or
+     *   -1 if not found]
+     * </pre>
+     */
+    private static int getChildElement(XMLTree xml, String tag) {
+        assert xml != null : "Violation of: xml is not null";
+        assert tag != null : "Violation of: tag is not null";
+        assert xml.isTag() : "Violation of: the label root of xml is a tag";
+
+        int tagIndex = -1;
+        int i = 0;
+        while (tagIndex == -1 && i < xml.numberOfChildren()) {
+            if (xml.child(i).label().equals(tag)) {
+                tagIndex = i;
+            } else {
+                i++;
+            }
+        }
+        return tagIndex;
+    }
+
+    /**
+     * Processes one news item and outputs one table row. The row contains three
+     * elements: the publication date, the source, and the title (or
+     * description) of the item.
+     *
+     * @param item
+     *            the news item
+     * @param out
+     *            the output stream
+     * @updates out.content
+     * @requires [the label of the root of item is an <item> tag] and
+     *           out.is_open
+     * @ensures <pre>
+     * out.content = #out.content *
+     *   [an HTML table row with publication date, source, and title of news item]
+     * </pre>
+     */
+    private static void processItem(XMLTree item, SimpleWriter out) {
+        assert item != null : "Violation of: item is not null";
+        assert out != null : "Violation of: out is not null";
+        assert item.isTag() && item.label().equals("item") : ""
+                + "Violation of: the label root of item is an <item> tag";
+        assert out.isOpen() : "Violation of: out.is_open";
+
+        int pubDateIndex = getChildElement(item, "pubDate");
+        String pubDate = "No date available";
+        if (pubDateIndex >= 0) {
+            XMLTree pubDateElement = item.child(pubDateIndex);
+            if (pubDateElement.numberOfChildren() > 0) {
+                pubDate = pubDateElement.child(0).label();
+            }
+        }
+
+        int sourceIndex = getChildElement(item, "source");
+        String source = "No source available";
+        String sourceUrl = "";
+        if (sourceIndex >= 0) {
+            XMLTree sourceElement = item.child(sourceIndex);
+            if (sourceElement.numberOfChildren() > 0) {
+                source = sourceElement.child(0).label();
+            }
+            sourceUrl = sourceElement.attributeValue("url");
+        }
+
+        int titleIndex = getChildElement(item, "title");
+        String news = "No title available";
+        boolean wasNewsTextUpdated = false;
+        if (titleIndex >= 0) {
+            XMLTree titleElement = item.child(titleIndex);
+            if (titleElement.numberOfChildren() > 0) {
+                news = titleElement.child(0).label();
+                wasNewsTextUpdated = true;
+            }
+        }
+        if (!wasNewsTextUpdated) {
+            int descriptionIndex = getChildElement(item, "description");
+            if (descriptionIndex >= 0) {
+                XMLTree descriptionElement = item.child(descriptionIndex);
+                if (descriptionElement.numberOfChildren() > 0) {
+                    news = descriptionElement.child(0).label();
+                }
+            }
+        }
+
+        int linkIndex = getChildElement(item, "link");
+        String newsUrl = "";
+        if (titleIndex >= 0) {
+            XMLTree linkElement = item.child(linkIndex);
+            if (linkElement.numberOfChildren() > 0) {
+                newsUrl = linkElement.child(0).label();
+            }
+        }
+
+        out.println("<tr>");
+        out.println("<td>" + pubDate + "</td>");
+        if (source.equals("No source available")) {
+            out.println("<td>" + source + "</td>");
+        } else {
+            out.println("<td><a href=\"" + sourceUrl + "\">" + source
+                    + "</a></td>");
+        }
+        if (newsUrl.length() > 0) {
+            out.println(
+                    "<td><a href=\"" + newsUrl + "\">" + news + "</a></td>");
+        } else {
+            out.println("<td>" + news + "</td>");
+        }
+        out.println("</tr>");
+    }
+
+    /**
+     * Main method.
+     *
+     * @param args
+     *            the command line arguments; unused here
+     */
+    public static void main(String[] args) {
+        SimpleReader in = new SimpleReader1L();
+        SimpleWriter out = new SimpleWriter1L();
+
+        // Receive user input of url
+        out.print("Enter the URL of an RSS 2.0 feed: ");
+        String urlInput = in.nextLine();
+
+        // Verify if the input URL is a valid rss 2.0 feed
+        XMLTree rss = new XMLTree1(urlInput);
+        if (rss.label().equals("rss") && rss.hasAttribute("version")
+                && rss.attributeValue("version").equals("2.0")) {
+            // Receive user input of output file name, inclusive of typing .html
+            out.print("Enter a name for an output file: ");
+            String outputFile = in.nextLine();
+            SimpleWriter htmlFile = new SimpleWriter1L(outputFile);
+            XMLTree channelElement = rss.child(0);
+            outputHeader(channelElement, htmlFile);
+
+            /*
+             * This while loop prints each row of the table through the use of
+             * the processItem() method
+             */
+            int counter = 0;
+            while (counter < channelElement.numberOfChildren()) {
+                if (channelElement.child(counter).label().equals("item")) {
+                    processItem(channelElement.child(counter), htmlFile);
+                }
+                counter++;
+            }
+
+            outputFooter(htmlFile);
+            htmlFile.close();
+        }
+        in.close();
+        out.close();
+    }
+
+}
+
+
+- Project 5
+	- Project 5 Instructions
+
+Project: RSS News Aggregator
+
+Objectives
+1.) Familiarity with using XMLTrees to process XML
+2.) Familiarity with using while loops and static methods
+3.) Exposure to RSS technology
+
+The Problem
+For this project your task is to update the RSS Reader program you wrote for the previous project so that it reads multiple RSS feeds and generates the same nicely formatted HTML page of links for each feed, plus an HTML index page with links to the individual feed pages.
+
+Your new program should ask the user for the name of an XML file containing a list of URLs for RSS v2.0 feeds (see below for the format of this file) and for the name of an output file in which to generate an HTML page with links to the pages for the individual RSS feeds (see below for an example). It should then read the input XML file into an XMLTree object and then process the list of RSS feeds from the XMLTree. For each RSS feed, the program should generate an HTML page with a table of links to all the news items in the feed (just like in the previous project). The program should also generate an HTML page with an index of links to the individual feed pages.
+
+Format of the Input XML Document
+The input XML document is pretty simple. This is the general structure:
+-----
+<feeds title="Title for index page">
+  <feed url="the feed source URL" name="name of feed for index page"
+    file="name of HTML file for feed" />
+  <feed url="..." name="..." file="..." />
+  ...
+</feeds>
+-----
+
+The top-level tag, <feeds>, has a required attribute, title, whose value is the title to be used in the index page; nested inside the top-level tag are 1 or more <feed> tags with the following required attributes: url, the URL of the RSS feed, name, the name to use for the link to the feed in the index page, and file, the name of the HTML file in which to generate the feed's table of links to news items (with the same format as the output in the previous project).
+
+Format of the HTML Output Index Page
+The HTML index page should include the following information:
+- the <feeds> title as the page title
+- a heading with the page title inside
+- an unordered list where each item is the name of a feed linked to the feed URL
+
+Method
+1.) Create a new Eclipse project by copying your RSSReader project and name the new project RSSAggregator.
+2.) Open the src folder of this project and then open (default package). Rename the RSSReader.java file to RSSAggregator.java. Open the RSSAggregator.java file in the editor.
+3.) Edit RSSAggregator.java to satisfy the problem requirements stated above. You should factor out the code in your previous project that processed the RSS feed into the following separate static method:
+-----
+/**
+ * Processes one XML RSS (version 2.0) feed from a given URL converting it
+ * into the corresponding HTML output file.
+ * 
+ * @param url
+ *            the URL of the RSS feed
+ * @param file
+ *            the name of the HTML output file
+ * @param out
+ *            the output stream to report progress or errors
+ * @updates out.content
+ * @requires out.is_open
+ * @ensures <pre>
+ * [reads RSS feed from url, saves HTML document with table of news items
+ *   to file, appends to out.content any needed messages]
+ * </pre>
+*/
+private static void processFeed(String url, String file, SimpleWriter out) {...}
+-----
+4.) Select your Eclipse project RSSAggregator (not just some of the files, but the whole project), create a zip archive of it, and submit the zip archive to the Carmen dropbox for this project, as described in Submitting a Project.
+
+	- Project 5 Answer
+
+import components.simplereader.SimpleReader;
+import components.simplereader.SimpleReader1L;
+import components.simplewriter.SimpleWriter;
+import components.simplewriter.SimpleWriter1L;
+import components.xmltree.XMLTree;
+import components.xmltree.XMLTree1;
+
+/**
+ * Program to convert an XML RSS (version 2.0) feed from a given URL into the
+ * corresponding HTML output file.
+ *
+ * @author Harish Mukkapati
+ *
+ */
+public final class RSSAggregator {
+
+    /**
+     * Private constructor so this utility class cannot be instantiated.
+     */
+    private RSSAggregator() {
+    }
+
+    /**
+     * Outputs the "opening" tags in the generated HTML file. These are the
+     * expected elements generated by this method:
+     *
+     * <html> <head> <title>the channel tag title as the page title</title>
+     * </head> <body>
+     * <h1>the page title inside a link to the <channel> link</h1>
+     * <p>
+     * the channel description
+     * </p>
+     * <table border="1">
+     * <tr>
+     * <th>Date</th>
+     * <th>Source</th>
+     * <th>News</th>
+     * </tr>
+     *
+     * @param channel
+     *            the channel element XMLTree
+     * @param out
+     *            the output stream
+     * @updates out.content
+     * @requires [the root of channel is a <channel> tag] and out.is_open
+     * @ensures out.content = #out.content * [the HTML "opening" tags]
+     */
+    private static void outputHeader(XMLTree channel, SimpleWriter out) {
+        assert channel != null : "Violation of: channel is not null";
+        assert out != null : "Violation of: out is not null";
+        assert channel.isTag() && channel.label().equals("channel") : ""
+                + "Violation of: the label root of channel is a <channel> tag";
+        assert out.isOpen() : "Violation of: out.is_open";
+
+        XMLTree titleElement = channel.child(getChildElement(channel, "title"));
+        String title = "Empty Title";
+        if (titleElement.numberOfChildren() > 0) {
+            title = titleElement.child(0).label();
+        }
+        String link = channel.child(getChildElement(channel, "link")).child(0)
+                .label();
+        XMLTree descriptionElement = channel
+                .child(getChildElement(channel, "description"));
+        String description = "No Description";
+        if (descriptionElement.numberOfChildren() > 0) {
+            description = descriptionElement.child(0).label();
+        }
+        out.println("<html> <head> <title>" + title + "</title>");
+        out.println("</head> <body>");
+        out.println("<h1><a href=\"" + link + "\">" + title + "</a></h1>");
+        out.println("<p>" + description + "</p>");
+        out.println("<table border=\"1\">");
+        out.println("<tr>");
+        out.println("<th>Date</th>");
+        out.println("<th>Source</th>");
+        out.println("<th>News</th>");
+        out.println("</tr>");
+    }
+
+    /**
+     * Outputs the "closing" tags in the generated HTML file. These are the
+     * expected elements generated by this method:
+     *
+     * </table>
+     * </body> </html>
+     *
+     * @param out
+     *            the output stream
+     * @updates out.contents
+     * @requires out.is_open
+     * @ensures out.content = #out.content * [the HTML "closing" tags]
+     */
+    private static void outputFooter(SimpleWriter out) {
+        assert out != null : "Violation of: out is not null";
+        assert out.isOpen() : "Violation of: out.is_open";
+
+        out.println("</table>");
+        out.println("</body>");
+        out.print("</html>");
+    }
+
+    /**
+     * Finds the first occurrence of the given tag among the children of the
+     * given {@code XMLTree} and return its index; returns -1 if not found.
+     *
+     * @param xml
+     *            the {@code XMLTree} to search
+     * @param tag
+     *            the tag to look for
+     * @return the index of the first child of type tag of the {@code XMLTree}
+     *         or -1 if not found
+     * @requires [the label of the root of xml is a tag]
+     * @ensures <pre>
+     * getChildElement =
+     *  [the index of the first child of type tag of the {@code XMLTree} or
+     *   -1 if not found]
+     * </pre>
+     */
+    private static int getChildElement(XMLTree xml, String tag) {
+        assert xml != null : "Violation of: xml is not null";
+        assert tag != null : "Violation of: tag is not null";
+        assert xml.isTag() : "Violation of: the label root of xml is a tag";
+
+        int tagIndex = -1;
+        int i = 0;
+        /*
+         * Will loop through xml until the child with the proper tag has been
+         * found, or will return that it does not exist
+         */
+        while (tagIndex == -1 && i < xml.numberOfChildren()) {
+            if (xml.child(i).label().equals(tag)) {
+                tagIndex = i;
+            } else {
+                i++;
+            }
+        }
+        return tagIndex;
+    }
+
+    /**
+     * Processes one news item and outputs one table row. The row contains three
+     * elements: the publication date, the source, and the title (or
+     * description) of the item.
+     *
+     * @param item
+     *            the news item
+     * @param out
+     *            the output stream
+     * @updates out.content
+     * @requires [the label of the root of item is an <item> tag] and
+     *           out.is_open
+     * @ensures <pre>
+     * out.content = #out.content *
+     *   [an HTML table row with publication date, source, and title of news item]
+     * </pre>
+     */
+    private static void processItem(XMLTree item, SimpleWriter out) {
+        assert item != null : "Violation of: item is not null";
+        assert out != null : "Violation of: out is not null";
+        assert item.isTag() && item.label().equals("item") : ""
+                + "Violation of: the label root of item is an <item> tag";
+        assert out.isOpen() : "Violation of: out.is_open";
+
+        // Identifies the publication date (if present)
+        int pubDateIndex = getChildElement(item, "pubDate");
+        String pubDate = "No date available";
+        if (pubDateIndex >= 0) {
+            XMLTree pubDateElement = item.child(pubDateIndex);
+            pubDate = pubDateElement.child(0).label();
+        }
+
+        // Links the source (if present) with the source url
+        int sourceIndex = getChildElement(item, "source");
+        String source = "No source available";
+        String sourceUrl = "";
+        if (sourceIndex >= 0) {
+            XMLTree sourceElement = item.child(sourceIndex);
+            if (sourceElement.numberOfChildren() > 0) {
+                source = sourceElement.child(0).label();
+            }
+            sourceUrl = sourceElement.attributeValue("url");
+        }
+
+        // Links the title (if present) with the news item
+        int titleIndex = getChildElement(item, "title");
+        String news = "No title available";
+        boolean wasNewsTextUpdated = false;
+        if (titleIndex >= 0) {
+            XMLTree titleElement = item.child(titleIndex);
+            if (titleElement.numberOfChildren() > 0) {
+                news = titleElement.child(0).label();
+                wasNewsTextUpdated = true;
+            }
+        } else if (!wasNewsTextUpdated) {
+            int descriptionIndex = getChildElement(item, "description");
+            if (descriptionIndex >= 0) {
+                XMLTree descriptionElement = item.child(descriptionIndex);
+                if (descriptionElement.numberOfChildren() > 0) {
+                    news = descriptionElement.child(0).label();
+                }
+            }
+        }
+
+        // Gets the link (if present) for the news item
+        int linkIndex = getChildElement(item, "link");
+        String newsUrl = "";
+        if (titleIndex >= 0) {
+            XMLTree linkElement = item.child(linkIndex);
+            if (linkElement.numberOfChildren() > 0) {
+                newsUrl = linkElement.child(0).label();
+            }
+        }
+
+        // Outputs a single row of the table
+        out.println("<tr>");
+        out.println("<td>" + pubDate + "</td>");
+        if (source.equals("No source available")) {
+            out.println("<td>" + source + "</td>");
+        } else {
+            out.println("<td><a href=\"" + sourceUrl + "\">" + source
+                    + "</a></td>");
+        }
+        if (newsUrl.length() > 0) {
+            out.println(
+                    "<td><a href=\"" + newsUrl + "\">" + news + "</a></td>");
+        } else {
+            out.println("<td>" + news + "</td>");
+        }
+        out.println("</tr>");
+    }
+
+    /**
+     * Processes one XML RSS (version 2.0) feed from a given URL converting it
+     * into the corresponding HTML output file.
+     *
+     * @param url
+     *            the URL of the RSS feed
+     * @param file
+     *            the name of the HTML output file
+     * @param out
+     *            the output stream to report progress or errors
+     * @updates out.content
+     * @requires out.is_open
+     * @ensures <pre>
+     * [reads RSS feed from url, saves HTML document with table of news items
+     *   to file, appends to out.content any needed messages]
+     * </pre>
+     */
+    private static void processFeed(String url, String file, SimpleWriter out) {
+        // Creating a new XMLTree with the url passed into the method
+        XMLTree rss = new XMLTree1(url);
+
+        // Verify if the input url is a valid rss 2.0 feed
+        if (rss.label().equals("rss") && rss.hasAttribute("version")
+                && rss.attributeValue("version").equals("2.0")) {
+            // Creates a new html file that it is outputting to
+            SimpleWriter feedHTML = new SimpleWriter1L(file);
+
+            // Creates a new XMLTree which is the channel child
+            XMLTree channelElement = rss.child(0);
+
+            out.println("Processing feed from: " + url);
+            outputHeader(channelElement, feedHTML);
+
+            // Loops through the children of channel element searching for the child item
+            for (int i = 0; i < channelElement.numberOfChildren(); i++) {
+                if (channelElement.child(i).label().equals("item")) {
+                    processItem(channelElement.child(i), feedHTML);
+                }
+            }
+
+            // Progress checker for when each rss feed is processed.
+            out.println("Completed processing XML RSS feed from " + url
+                    + " into " + file + ".");
+            out.println();
+            outputFooter(feedHTML);
+
+            feedHTML.close();
+        } else {
+            out.print("The following url is not a valid RSS 2.0 feed: " + url);
+        }
+
+    }
+
+    /**
+     * Main method.
+     *
+     * @param args
+     *            the command line arguments; unused here
+     */
+    public static void main(String[] args) {
+        SimpleReader in = new SimpleReader1L();
+        SimpleWriter out = new SimpleWriter1L();
+
+        // Asks the user for a xml url
+        out.print("Input name of XML File: ");
+        String aggregatorFileName = in.nextLine();
+
+        // Asks the user for the name of the output html file
+        out.print("Input name of output file: ");
+        String aggregatorFileNameHTML = in.nextLine();
+        SimpleWriter aggregatedOutput = new SimpleWriter1L(
+                aggregatorFileNameHTML);
+
+        // Creates XMLTree with provided xml url
+        XMLTree feeder = new XMLTree1(aggregatorFileName);
+
+        // Outputs the html feed which has a list of the links to various rss feeds
+        aggregatedOutput.println("<html><head><title>"
+                + feeder.attributeValue("title") + "</title></head>");
+        aggregatedOutput.println(
+                "<body><h1>" + feeder.attributeValue("title") + "</h1>");
+        aggregatedOutput.println("<ul>");
+
+        out.println("XML file contains " + feeder.numberOfChildren());
+
+        // For loop reads url / html links and makes a list of them
+        for (int i = 0; i < feeder.numberOfChildren(); i++) {
+            XMLTree childElement = feeder.child(i);
+            String url = childElement.attributeValue("url");
+            String file = childElement.attributeValue("file");
+            String name = childElement.attributeValue("name");
+            aggregatedOutput.println(
+                    "<li><a href =\"" + file + "\">" + name + "</a></li>");
+            processFeed(url, file, out);
+
+        }
+        aggregatedOutput.print("</ul></body></html>");
+
+        // Tells the user when program has finished running.
+        out.println("Finished processing all feeds.");
+
+        aggregatedOutput.close();
+        in.close();
+        out.close();
+    }
+
+}
+
+- Project 6
+	- Project 6 Instructions
+
+Project: NaturalNumber Roots
+
+Objectives
+1.) Familiarity with using NaturalNumber objects and methods.
+2.) Familiarity with using interval halving to invert a function.
+
+The Problem
+- Your job is to implement the root static method for NaturalNumber using the interval halving root algorithm you developed in an earlier homework and lab for integer roots.
+
+Setup
+1.) Create a new Eclipse project by copying ProjectTemplate or a previous project you have created, naming the new project NaturalNumberRoot.
+2.) Open the src folder of this project and then open (default package). As a starting point you can use any of the Java files. Rename it NaturalNumberRoot and delete the other files from the project.
+3.) Follow the link to NaturalNumberRoot.java, select all the code on that page and copy it to the clipboard; then open the NaturalNumberRoot.java file in Eclipse and paste the code to replace the file contents. Save the file.
+
+Method
+1.) Edit NaturalNumberRoot.java to implement the root static method with the interval halving algorithm. Here is the contract:
+-----
+/**
+ * Updates {@code n} to the {@code r}-th root of its incoming value.
+ * 
+ * @param n
+ *            the number whose root to compute
+ * @param r
+ *            root
+ * @updates n
+ * @requires r >= 2
+ * @ensures n ^ (r) <= #n < (n + 1) ^ (r)
+ */
+public static void root(NaturalNumber n, int r) {...}
+-----
+For this method you can use any NaturalNumber methods except for NaturalNumber's own instance method root. Run the NaturalNumberRoot program to test your implementation of root.
+2.) Select your Eclipse project NaturalNumberRoot (not just some of the files, but the whole project), create a zip archive of it, and submit the zip archive to the Carmen dropbox for this project, as described in Submitting a Project.
+
+	- Project 6 Answer
+import components.naturalnumber.NaturalNumber;
+import components.naturalnumber.NaturalNumber2;
+import components.simplewriter.SimpleWriter;
+import components.simplewriter.SimpleWriter1L;
+
+/**
+ * Program with implementation of {@code NaturalNumber} secondary operation
+ * {@code root} implemented as static method.
+ *
+ * @author Harish Mukkapati
+ *
+ */
+public final class NaturalNumberRoot {
+
+    /**
+     * Private constructor so this utility class cannot be instantiated.
+     */
+    private NaturalNumberRoot() {
+    }
+
+    /**
+     * Updates {@code n} to the {@code r}-th root of its incoming value.
+     *
+     * @param n
+     *            the number whose root to compute
+     * @param r
+     *            root
+     * @updates n
+     * @requires r >= 2
+     * @ensures n ^ (r) <= #n < (n + 1) ^ (r)
+     */
+    public static void root(NaturalNumber n, int r) {
+        assert n != null : "Violation of: n is  not null";
+        assert r >= 2 : "Violation of: r >= 2";
+
+        // Establishing lower limit
+        NaturalNumber lowerLimit = new NaturalNumber2(0);
+
+        // Establishing the upper limit
+        NaturalNumber upperLimit = new NaturalNumber2(1);
+        upperLimit.add(n);
+
+        // True / false tester for answer
+        boolean foundAnswer = false;
+
+        // Creating the constants 1 and 2
+        final NaturalNumber one = new NaturalNumber2(1);
+        final NaturalNumber two = new NaturalNumber2(2);
+
+        // Variable for finding the midpoint of upperLimit and lowerLimit
+        NaturalNumber center = new NaturalNumber2(0);
+
+        // Variable that will be raised to the power r for comparison purposes
+        NaturalNumber centerPower = new NaturalNumber2(0);
+
+        /*
+         * Will either find answer or return the closest integer one less than
+         * the "r"th root of n
+         */
+        while (!foundAnswer) {
+            // Resetting value of upperLimit
+            NaturalNumber upperLimitTemp = new NaturalNumber2(upperLimit);
+
+            // Creating new center point
+            center.copyFrom(upperLimit);
+            center.add(lowerLimit);
+            center.divide(two);
+
+            // Used for the purpose of comparing center^r to n
+            centerPower.copyFrom(center);
+            centerPower.power(r);
+            int comparisonCenter = n.compareTo(centerPower);
+
+            // Used for the purpose of following the rule that upperLimit - lowerLimit > 1
+            upperLimitTemp.subtract(lowerLimit);
+            int comparisonBound = upperLimitTemp.compareTo(one);
+
+            if (comparisonCenter == 0 || comparisonBound == 0) {
+                foundAnswer = true;
+            } else if (comparisonCenter < 0) {
+                upperLimit.copyFrom(center);
+            } else if (comparisonCenter > 0) {
+                lowerLimit.copyFrom(center);
+            }
+        }
+
+        // Passes the discovered value stored in center into n
+        n.copyFrom(center);
+
+    }
+
+    /**
+     * Main method.
+     *
+     * @param args
+     *            the command line arguments
+     */
+    public static void main(String[] args) {
+        SimpleWriter out = new SimpleWriter1L();
+
+        final String[] numbers = { "0", "1", "13", "1024", "189943527", "0",
+                "1", "13", "4096", "189943527", "0", "1", "13", "1024",
+                "189943527", "82", "82", "82", "82", "82", "9", "27", "81",
+                "243", "143489073", "2147483647", "2147483648",
+                "9223372036854775807", "9223372036854775808",
+                "618970019642690137449562111",
+                "162259276829213363391578010288127",
+                "170141183460469231731687303715884105727" };
+        final int[] roots = { 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 15, 15, 15, 15, 15,
+                2, 3, 4, 5, 15, 2, 3, 4, 5, 15, 2, 2, 3, 3, 4, 5, 6 };
+        final String[] results = { "0", "1", "3", "32", "13782", "0", "1", "2",
+                "16", "574", "0", "1", "1", "1", "3", "9", "4", "3", "2", "1",
+                "3", "3", "3", "3", "3", "46340", "46340", "2097151", "2097152",
+                "4987896", "2767208", "2353973" };
+
+        for (int i = 0; i < numbers.length; i++) {
+            NaturalNumber n = new NaturalNumber2(numbers[i]);
+            NaturalNumber r = new NaturalNumber2(results[i]);
+            root(n, roots[i]);
+            if (n.equals(r)) {
+                out.println("Test " + (i + 1) + " passed: root(" + numbers[i]
+                        + ", " + roots[i] + ") = " + results[i]);
+            } else {
+                out.println("*** Test " + (i + 1) + " failed: root("
+                        + numbers[i] + ", " + roots[i] + ") expected <"
+                        + results[i] + "> but was <" + n + ">");
+            }
+        }
+
+        out.close();
+    }
+
+}
+
+- Project 7
+	- Project 7 Instructions
+
+Project: XMLTree Expression Evaluator
+Objectives
+1.) Familiarity with using recursion to evaluate arithmetic expressions.
+2.) Familiarity with using XMLTree objects and methods.
+3.) Familiarity with using NaturalNumber objects and methods.
+
+The Problem
+- Your job is to implement two versions of the evaluate static method to recursively evaluate arithmetic expressions represented as XMLTrees. One version of the method evaluates the expression with ints and the other version uses NaturalNumbers. The expressions are stored in XML format (see below) so the program can load them as XMLTrees.
+
+Arithmetic Expressions
+- The program supports arithmetic expressions with integer operands, binary operators +, –, *, and /, and parentheses (). The precedence rules are the standard ones from arithmetic (i.e., parenthesized expressions are evaluated first, then multiplicative operators, and finally additive operators).
+
+Generating XMLTree expressions
+- To generate the XML input files for your program, you can use a program that allows the user to enter an arithmetic expression and save it into the corresponding XML document. You can run this program by importing it into Eclipse. First you need to download the project archive, xml-expression-generator.zip, to your computer. Click on this download link and save the file somewhere on your hard drive where you can easily find it. Make sure that you do not expand this archive. If your browser automatically expands downloaded zip archives, that's OK too. Just pay attention to the special instructions in the following few steps. You may want to make a note of where you saved it.
+
+Import your new project in Eclipse by following these steps:
+	1.) From the File menu select Import....
+	2.) In the new window, expand General and select Existing Projects into Workspace. Click Next.
+	3.) Click on the radio button next to Select archive file and then click the Browse... button. (If the archive was expanded when you downloaded the file to your own computer, click on Select root directory... instead.)
+	4.) In the file selection window, find the xml-expression-generator.zip file and select it. (If your browser expanded the archive, find the xml-expression-generator directory instead.) Click OK.
+	5.) Click Finish.
+
+To run the program, find the RunGenerator.java file in the src folder in the project and run it as usual as a Java Application. Once you start the program, you can enter an expression (the program only allows the user to enter characters that are valid in an expression) and save it to an XML document on the local drive (the Save XML... button is active only when the text entered is a valid arithmetic expression).
+
+Format of the Input Expression XML Document
+
+Here is an example of the expression XML document representing the expression 12*(7-3)/6+8:
+------
+<expression>
+  <plus>
+    <divide>
+      <times>
+        <number value="12" />
+        <minus>
+          <number value="7" />
+          <number value="3" />
+        </minus>
+      </times>
+      <number value="6" />
+    </divide>
+    <number value="8" />
+  </plus>
+</expression>
+-----
+The top-level tag is <expression>. Nested inside there can be 5 different tags: <plus>, <minus>, <times>, <divide>, and <number>. The first four represent the (binary) operators and the last one represents the operands whose value is specified in the required attribute value (assume operands can only be non-negative integers). Each of the operator tags has exactly two nested tags and no attributes. There are no text nodes. Note that the parentheses in the original expression have disappeared because the XML document already "encodes" the correct order of evaluation of the operators in the given expression.
+
+Setup
+1.) Create a new Eclipse project by copying ProjectTemplate or a previous project you have created, naming the new project XMLTreeExpressionEvaluator.
+2.) Open the src folder of this project and then open (default package). As a starting point you can use any of the Java files. Rename it XMLTreeIntExpressionEvaluator and delete the other files from the project.
+3.) Follow the link to XMLTreeIntExpressionEvaluator.java, select all the code on that page and copy it to the clipboard; then open the XMLTreeIntExpressionEvaluator.java file in Eclipse and paste the code to replace the file contents. Save the file.
+
+
+Method
+1.) Edit XMLTreeIntExpressionEvaluator.java to implement the first version of the evaluate method using recursion. This is the one that uses int for the operand type and computes the value of the expression with Java's built-in integer operators. Here is the contract:
+-----
+/**
+ * Evaluate the given expression.
+ * 
+ * @param exp
+ *            the {@code XMLTree} representing the expression
+ * @return the value of the expression
+ * @requires <pre>
+ * [exp is a subtree of a well-formed XML arithmetic expression]  and
+ *  [the label of the root of exp is not "expression"]
+ * </pre>
+ * @ensures evaluate = [the value of the expression]
+ */
+private static int evaluate(XMLTree exp) {...}
+-----
+As the requires clause states, you can assume that the given XMLTree is a well-formed XML expression and you do not need to check for errors. You can use the Integer.parseInt(String) static method to convert a String value into an integer.
+2.) Run the XMLTreeIntExpressionEvaluator program to test your implementation of evaluate.
+3.) Copy XMLTreeIntExpressionEvaluator.java to create XMLTreeNNExpressionEvaluator.java.
+4.) Edit XMLTreeNNExpressionEvaluator.java to implement the second version of the evaluate method using recursion. This is the one that uses NaturalNumber for the operand type and computes the value of the expression with NaturalNumber's methods. Make sure you update the contract and the implementation to match the following:
+------
+/**
+ * Evaluate the given expression.
+ * 
+ * @param exp
+ *            the {@code XMLTree} representing the expression
+ * @return the value of the expression
+ * @requires <pre>
+ * [exp is a subtree of a well-formed XML arithmetic expression]  and
+ *  [the label of the root of exp is not "expression"]
+ * </pre>
+ * @ensures evaluate = [the value of the expression]
+ */
+private static NaturalNumber evaluate(XMLTree exp) {...}
+-----
+5.) Run the XMLTreeNNExpressionEvaluator program to test your implementation of evaluate.
+6.) Add checks for the preconditions (requires clause) of all the NaturalNumber methods you invoke in your solution that have a precondition and make sure you output descriptive error messages. Note that even though you can assume the given XMLTree is a well-formed XML expression, it is possible that one or more of the NaturalNumber methods may be called with a violated precondition (e.g., divide by 0). If you find any violated precondition, you should stop the evaluation of the expression and report a fatal error. Use the components.utilities.Reporter's fatalErrorToConsole method to report the error and make the program terminate.
+7.) Select your Eclipse project XMLTreeExpressionEvaluator (not just some of the files, but the whole project), create a zip archive of it, and submit the zip archive to the Carmen dropbox for this project, as described in Submitting a Project.
+
+	- Project 7 Answer
+		- XMLTreeIntExpressionCalculator
+
+import components.simplereader.SimpleReader;
+import components.simplereader.SimpleReader1L;
+import components.simplewriter.SimpleWriter;
+import components.simplewriter.SimpleWriter1L;
+import components.xmltree.XMLTree;
+import components.xmltree.XMLTree1;
+
+/**
+ * Program to evaluate XMLTree expressions of {@code int}.
+ *
+ * @author Harish Mukkapati
+ *
+ */
+public final class XMLTreeIntExpressionEvaluator {
+
+    /**
+     * Private constructor so this utility class cannot be instantiated.
+     */
+    private XMLTreeIntExpressionEvaluator() {
+    }
+
+    /**
+     * Evaluate the given expression.
+     *
+     * @param exp
+     *            the {@code XMLTree} representing the expression
+     * @return the value of the expression
+     * @requires <pre>
+     * [exp is a subtree of a well-formed XML arithmetic expression]  and
+     *  [the label of the root of exp is not "expression"]
+     * </pre>
+     * @ensures evaluate = [the value of the expression]
+     */
+    private static int evaluate(XMLTree exp) {
+        assert exp != null : "Violation of: exp is not null";
+
+        /*
+         * Initializes a string as the root so that this function does not need
+         * to be repeatedly called
+         */
+        String expLabel = exp.label();
+
+        // Initialized the variable that is to be returned
+        int answer = 0;
+
+        // Process that evaluates the order of operations as organized by the XMLTree
+        if (expLabel.equals("plus")) {
+            answer = evaluate(exp.child(0)) + evaluate(exp.child(1));
+        } else if (expLabel.equals("minus")) {
+            answer = evaluate(exp.child(0)) - evaluate(exp.child(1));
+        } else if (expLabel.equals("times")) {
+            answer = evaluate(exp.child(0)) * evaluate(exp.child(1));
+        } else if (expLabel.equals("divide")) {
+            answer = evaluate(exp.child(0)) / evaluate(exp.child(1));
+        } else {
+            answer = Integer.parseInt(exp.attributeValue("value"));
+        }
+
+        return answer;
+
+    }
+
+    /**
+     * Main method.
+     *
+     * @param args
+     *            the command line arguments
+     */
+    public static void main(String[] args) {
+        SimpleReader in = new SimpleReader1L();
+        SimpleWriter out = new SimpleWriter1L();
+
+        out.print("Enter the name of an expression XML file: ");
+        String file = in.nextLine().trim();
+        while (!file.equals("")) {
+            XMLTree exp = new XMLTree1(file);
+            out.println(evaluate(exp.child(0)));
+            out.print("Enter the name of an expression XML file: ");
+            file = in.nextLine();
+        }
+
+        in.close();
+        out.close();
+    }
+
+}
+
+		- XMLTreeNNExpressionCalculator
+
+import components.naturalnumber.NaturalNumber;
+import components.naturalnumber.NaturalNumber2;
+import components.simplereader.SimpleReader;
+import components.simplereader.SimpleReader1L;
+import components.simplewriter.SimpleWriter;
+import components.simplewriter.SimpleWriter1L;
+import components.utilities.Reporter;
+import components.xmltree.XMLTree;
+import components.xmltree.XMLTree1;
+
+/**
+ * Program to evaluate XMLTree expressions of {@code int}.
+ *
+ * @author Harish Mukkapati
+ *
+ */
+public final class XMLTreeNNExpressionEvaluator {
+
+    /**
+     * Private constructor so this utility class cannot be instantiated.
+     */
+    private XMLTreeNNExpressionEvaluator() {
+    }
+
+    /**
+     * Evaluate the given expression.
+     *
+     * @param exp
+     *            the {@code XMLTree} representing the expression
+     * @return the value of the expression
+     * @requires <pre>
+     * [exp is a subtree of a well-formed XML arithmetic expression]  and
+     *  [the label of the root of exp is not "expression"]
+     * </pre>
+     * @ensures evaluate = [the value of the expression]
+     */
+    private static NaturalNumber evaluate(XMLTree exp) {
+        assert exp != null : "Violation of: exp is not null";
+
+        /*
+         * Initializes a string as the root so that this function does not need
+         * to be repeatedly called
+         */
+        String expLabel = exp.label();
+
+        // Initializes the variable that will be returned
+        NaturalNumber answer = new NaturalNumber2();
+
+        // Process that evaluated the order of operations as organized by the XMLTree
+        if (expLabel.equals("number")) {
+            answer.setFromString(exp.attributeValue("value"));
+        } else {
+            answer.copyFrom(evaluate(exp.child(0)));
+            if (expLabel.equals("plus")) {
+                answer.add(evaluate(exp.child(1)));
+            } else if (expLabel.equals("minus")) {
+                NaturalNumber subtrahend = evaluate(exp.child(1));
+
+                /*
+                 * Tests the right side of the subtraction to see if it is
+                 * greater than the NaturalNumber on the left side of the minus
+                 * sign, since a negative number cannot be stored in a
+                 * NaturalNumber
+                 */
+                if (answer.compareTo(subtrahend) < 0) {
+                    Reporter.fatalErrorToConsole(
+                            "CANNOT STORE NEGATIVE NUMBER");
+                }
+                answer.subtract(subtrahend);
+            } else if (expLabel.equals("times")) {
+                answer.multiply(evaluate(exp.child(1)));
+            } else {
+                // Divide by zero error output
+                NaturalNumber denom = new NaturalNumber2(
+                        evaluate(exp.child(1)));
+                if (denom.isZero()) {
+                    Reporter.fatalErrorToConsole("CANNOT DIVIDE BY 0");
+                }
+                answer.divide(denom);
+            }
+
+        }
+
+        return answer;
+    }
+
+    /**
+     * Main method.
+     *
+     * @param args
+     *            the command line arguments
+     */
+    public static void main(String[] args) {
+        SimpleReader in = new SimpleReader1L();
+        SimpleWriter out = new SimpleWriter1L();
+
+        out.print("Enter the name of an expression XML file: ");
+        String file = in.nextLine();
+        while (!file.equals("")) {
+            XMLTree exp = new XMLTree1(file);
+            out.println(evaluate(exp.child(0)));
+            out.print("Enter the name of an expression XML file: ");
+            file = in.nextLine();
+        }
+
+        in.close();
+        out.close();
+    }
+
+}
+
