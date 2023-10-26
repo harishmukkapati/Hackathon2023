@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+
+.chat-window {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin: auto;
+    height: 400px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+}
+
+.header {
+    font-size: 24px;
+    padding: 20px;
+}
+
+.message-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.user-message {
+    text-align: right;
+    background-color: #e6f7ff;
+    border: 1px solid #cce7ff;
+}
+
+.bot-message {
+    text-align: left;
+    background-color: #e1e1e1;
+    border: 1px solid #cccccc;
+}
+
+.message-text {
+    display: inline-block;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+.bg-user {
+    background-color: #b1d9fc;
+}
+
+.bg-bot {
+    background-color: #bfc0c2;
+}
