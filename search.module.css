@@ -1,0 +1,116 @@
+/* styles/search.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+/* styles/search.module.css */
+
+.container {
+    /* Your other styles here */
+    font-family: 'Open-sans', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    min-height: 100vh;
+    
+    /* Gradient background */
+    background-color: #0B0F19; /* Adjust colors as needed */
+}
+
+
+.title {
+    font-size: 4.5rem;
+    margin-bottom: 20px;
+    font-weight: 700; /* Make it bold */
+    color: rgba(245, 245, 245, 0.645);
+}
+
+
+.searchBox {
+    width: 50%;
+    flex: 1;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 24px; /* Increase border-radius for a more rounded look */
+    border: 1px solid #dfe1e5; /* Light gray border */
+    margin-bottom: 20px;
+    color: #333;
+    background-color: #fff;
+    box-shadow: 0px 1px 6px rgba(32, 33, 36, 0.28); /* Shadow */
+}
+
+
+.searchBox::placeholder {
+    color: #999; /* Adjust as needed */
+}
+
+.searchButton {
+    padding: 10px 20px; /* Adjust padding as needed */
+    font-size: 1em;
+    border: none;
+    border-radius: 24px;
+    background-color: #f97316;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    min-width: 100px; /* Set a minimum width for the button */
+    margin-left: 4px;
+    align-self: flex-start;
+
+}
+
+.searchButton:hover {
+    background-color: #850043; /* Darker blue on hover */
+}
+
+.searchButton:active {
+    background-color: #2F1800;
+    /*Make button shrink to 95% of its original size when being clicked*/
+    transform: scale(0.98);
+    transition: all 0.3s ease;
+}
+
+
+.suggestions {
+    border: 1px solid #ccc;
+    text-decoration: underline;
+    color: blue;
+    width: 50%;
+    background-color: white;
+    z-index: 2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    margin-top: 10px; /* Add some spacing between the search box and suggestions */
+}
+
+.suggestionItem {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.suggestionItem:hover {
+    background-color: #f1f1f1;
+    border-radius: 20px;
+}
+
+.searchContainer {
+    display: flex;
+    align-items: center;
+    width: 50%; /* Adjust the width as needed */
+}
+
+.subtext {
+    font-size: 1.5rem;
+    color: rgba(245, 245, 245, 0.645);
+    margin-top: 20vh;
+}
+
+.resultsText{
+    font-size: 2em;
+    padding: 10px;
+    cursor: pointer;
+    color:rgb(0, 0, 0);
+    text-align : left;
+}
